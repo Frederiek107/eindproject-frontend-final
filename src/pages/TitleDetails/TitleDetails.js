@@ -55,7 +55,7 @@ function DetailsPage() {
              const response = await axios.get('https://unogsng.p.rapidapi.com/title',
                 {
                     headers: {
-                        'x-rapidapi-key': '507b948f66msh90f8bf9e69ef39bp173c0ajsnd3a1afec868c',
+                        'x-rapidapi-key': ${apiKey}
                         'x-rapidapi-host': 'unogsng.p.rapidapi.com',
                     },
                     params: {
