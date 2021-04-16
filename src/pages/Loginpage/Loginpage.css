@@ -1,0 +1,67 @@
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 150px;
+    width: 450px;
+    background: rgba(255, 255, 255, 0.8);
+    border: rgb(75, 78, 84) 2px solid;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+#retrieve-password {
+    align-self: flex-end;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+input {
+    margin: 10px;
+    border-radius: 5px;
+}
+
+h1 {
+    align-self: center;
+    font-size: 36px;
+}
+
+#login {
+    color: #707070;
+    background: rgba(255, 255, 255, 0.75);
+    border: rgb(50,55,64) 2px solid;
+    border-radius: 10px;
+    padding: 30px;
+    width: 500px;
+    height: 300px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#login-button {
+    font-family: "Segoe UI";
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(50,55,64);
+    border-radius: 25px;
+    position: absolute;
+    bottom: 15%;
+    left: 45%;
+    height: 40px;
+    width: 150px;
+}
+
+#signup {
+    position: absolute;
+    bottom: 10%;
+    right: 7%;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: underline;
+}

@@ -1,0 +1,88 @@
+#homepage {
+    font-family: "Segoe UI";
+}
+
+#title-component {
+    font-family: "Segoe UI";
+    color: white;
+    background: rgba(112, 112, 112, 0.75);
+    border-radius: 10px;
+    width: 200px;
+    height: 315px;
+    padding: 15px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 auto;
+}
+
+#image {
+    max-width: 190px;
+    max-height: 300px;
+}
+
+#component-wrapper {
+    display: grid;
+    /* auto auto is telling the browser to render two rows, if needed */
+    grid-template-rows: auto auto;
+    grid-auto-flow: column;
+    overflow-x: scroll;
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; /* make scrollbar transparent */
+}
+
+#arrow {
+    display: none;
+}
+
+.arrowed {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(112, 112, 112, 0.75);
+    position: relative;
+    height: 40px;
+    width: 40px;
+    padding: 10px;
+    margin: 0 20px 20px 0;
+    border: 1px solid rgba(0,0,0,0.25);
+    border-radius: 45px;
+}
+
+.arrow-1 {
+    height: 15px; width: 15px;
+    margin-right: 3px;
+    border: 1px solid white;
+    border-width: 4px 4px 0 0;
+    transform: rotate(45deg);
+}
+
+.arrow-2 {
+    height: 15px; width: 15px;
+    margin-right: 3px;
+    border: 1px solid white;
+    border-width: 4px 4px 0 0;
+    transform: rotate(-135deg);
+}
+
+nav {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+nav ul {
+    color: white;
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-basis: 200px;
+    flex-shrink: 1;
+    margin: 0 30px;
+}

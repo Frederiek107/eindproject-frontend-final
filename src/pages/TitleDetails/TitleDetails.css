@@ -1,0 +1,8 @@
+#details {
+    align-self: flex-end;
+}
+
+#details-image {
+    max-width: 300px;
+    max-height: 600px;
+}

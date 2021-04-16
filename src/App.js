@@ -1,11 +1,11 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import './App.css';
-import Loginpage from '../src/pages/Loginpage'
+import Loginpage from '../src/pages/Loginpage/Loginpage'
 import {BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Homepage from '../src/pages/Homepage'
-import TopMenu from '../src/components/TopMenu'
-import NewContentPage from '../src/pages/NewContentPage'
-import TitleDetails from '../src/pages/TitleDetails'
+import Homepage from '../src/pages/Homepage/Homepage'
+import TopMenu from '../src/components/TopMenu/TopMenu'
+import NewContentPage from '../src/pages/NewContentPage/NewContentPage'
+import TitleDetails from '../src/pages/TitleDetails/TitleDetails'
 
 function App() {
 
@@ -13,11 +13,11 @@ function App() {
       <Router>
         <TopMenu />
         <Switch>
-          <Route path="/login" >
+          <Route exact path="/" >
             <Loginpage />
           </Route>
 
-          <Route exact path="/">
+          <Route path="/home">
             <Homepage />
           </Route>
 
