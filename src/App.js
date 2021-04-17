@@ -3,7 +3,7 @@ import './App.css';
 import Loginpage from '../src/pages/Loginpage/Loginpage'
 import {BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Homepage from '../src/pages/Homepage/Homepage'
-import TopMenu from '../src/components/TopMenu/TopMenu'
+import NavBar from './components/NavBar/NavBar'
 import NewContentPage from '../src/pages/NewContentPage/NewContentPage'
 import TitleDetails from '../src/pages/TitleDetails/TitleDetails'
 
@@ -11,7 +11,7 @@ function App() {
 
   return (
       <Router>
-        <TopMenu />
+        <NavBar />
         <Switch>
           <Route exact path="/" >
             <Loginpage />
@@ -25,7 +25,7 @@ function App() {
             <NewContentPage />
           </Route>
 
-          <Route path="/details">
+          <Route exact path="/details:netflixID">
             <TitleDetails />
           </Route>
 

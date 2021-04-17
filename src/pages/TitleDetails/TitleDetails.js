@@ -1,97 +1,106 @@
 import React, {useEffect, useState} from 'react';
 import axios from "axios";
 import ReactPlayer from "react-player";
-import {useLocation} from 'react-router-dom'
+import {useLocation, useParams} from 'react-router-dom'
 import './TitleDetails.css'
 
 function DetailsPage() {
-    const [id, setId] = useState('');
-    const [imdbid, setImdbid] = useState('');
-    const [year, setYear] = useState('');
-    const [description, setDescription] = useState('');
-    const [ageRating, setAgeRating] = useState('');
-    const [runtime, setRuntime] = useState('');
-    const [image, setImage] = useState('');
-    const [trailer,setTrailer] = useState('');
-    const [title, setTitles] = useState('');
+
+    const location = useLocation();
+    const netflixID = location.state.netflixID;
+    const imdbID = location.state.imdbID;
+    const vtype = location.state.vtype;
     const [movieID, setMovieID] = useState('');
     const [seriesID, setSeriesID] = useState('');
-    const location = useLocation();
-    const apiKey=process.env.REACT_APP_API_KEY;
-    const apiKey2=process.env.REACT_APP_API_KEY2;
+    const [trailer, setTrailer] = useState('');
+    const [responseUNOGS, setResponseUNOGS] = useState(null);
 
-
-    async function fetchMovieID() {
-        setId(location.state.id);
-        setImdbid(location.state.IMDBid);
-        const response = imdbid&& await axios.get(`https://api.themoviedb.org/3/find/${imdbid}?api_key=${apiKey}&language=en-US&external_source=imdb_id`);
-        /*const seriesid=response.data.tv_results.map((series)=>{
-            return series.id;
-        })*/
-        /*const seriesID=seriesid[0];*/
-        /*setSeriesID(seriesID);*/
-        console.log(response);
-        const movieid= response.data.movie_results.map((movie)=>{
-            return movie.id;
-        })
-        const movieID=movieid[0];
-        setMovieID(movieID);
-        console.log(movieID);
-    }
-    useEffect(()=>{fetchMovieID()},[]);
-
-    async function fetchTMDBvideo() {
-        const result = await axios.get(`https://api.themoviedb.org/3/movie/${movieID}/videos?api_key=${apiKey2}&language=en-US`);
-        console.log(result);
-        const urlKey = result.data.results[0].key;
-        const url= `https://www.youtube.com/watch?v=${urlKey}`;
-        console.log(url);
-        setTrailer(url);
-    }
-    useEffect(()=>{if (movieID) {fetchTMDBvideo()}},[movieID])
-
-    /*async function fetchDetails() {
+ /* async function fetchDetailsUnogs() {
         try {
-             const response = await axios.get('https://unogsng.p.rapidapi.com/title',
+            const response = await axios.get('https://unogsng.p.rapidapi.com/title',
                 {
                     headers: {
-                        'x-rapidapi-key': ${apiKey}
+                        'x-rapidapi-key': process.env.REACT_APP_API_KEY,
                         'x-rapidapi-host': 'unogsng.p.rapidapi.com',
                     },
                     params: {
-                        netflixid: {id} //{netflixid}
+                        netflixid: netflixID
                     }
                 });
+            response && setResponseUNOGS(response);
             console.log(response);
-            const year = response&& response.data.results.map((result)=>{
-                return result.year;
-            });
-            console.log(year);
-            setYear(year);
-            const description = response.data.results.map((result)=> {
-                return result.synopsis;
-            })
-            setDescription(description);
-            const ageRating = response.data.results.map((result)=> {
-                return result.imdbrated;
-            })
-            setAgeRating(ageRating);
-            const runtime = response.data.results.map((result)=> {
-                return result.imdbruntime;
-            })
-            setRuntime(runtime);
-            const image = response.data.results.map((result)=> {
-                return result.lgimg;
-            })
-            image && setImage(image);
         } catch (e) {
             console.error(e);
         }
     }
-    useEffect(()=>{if(id) {fetchDetails()}},[]);*/
+    useEffect(()=>{if (imdbID === null || imdbID === "notfound") {fetchDetailsUnogs()}},[])
+
+
+    async function fetchTMDBID() {
+        try {
+            const response = imdbID && await axios.get(`https://api.themoviedb.org/3/find/${imdbID}?api_key=${process.env.REACT_APP_API_KEY2}&language=en-US&external_source=imdb_id`);
+            if (vtype === "series") {
+                const seriesid = response.data.tv_results.map((series) => {
+                    return series.id;
+                });
+                const seriesID = seriesid[0];
+                setSeriesID(seriesID);
+            } else if (vtype === "movies") {
+                const movieid = response.data.movie_results.map((movie) => {
+                    return movie.id;
+                })
+                const movieID = movieid[0];
+                setMovieID(movieID);
+            }
+        } catch (e) {
+            console.error(e);
+        }
+    }
+   useEffect(()=> {if (imdbID !== null && imdbID !== "notfound") {fetchTMDBID()}}, []);
+
+    async function fetchTMDBvideo() {
+        if (movieID) {
+            try {
+                const response = await axios.get(`https://api.themoviedb.org/3/movie/${movieID}/videos?api_key=${process.env.REACT_APP_API_KEY2}`);
+                const urlKey = response.data.results[0].key;
+                const url = `https://www.youtube.com/watch?v=${urlKey}`;
+                setTrailer(url);
+            } catch (e) {
+                console.error(e);
+            }
+        } else if (seriesID) {
+            try {
+                const response = await axios.get(`https://api.themoviedb.org/3/tv/${seriesID}/videos?api_key=${process.env.REACT_APP_API_KEY2}`)
+                const urlKey = response.data.results[0].key;
+                const url = `https://www.youtube.com/watch?v=${urlKey}`;
+                setTrailer(url);
+            } catch (e) {
+                console.error(e);
+            }
+        }
+    }
+    useEffect(()=>{fetchTMDBvideo()}, [movieID, seriesID]);*/
 
     return (
-        <div id="detailsComponent">
+        <>
+            {responseUNOGS && responseUNOGS.data.results.map((result) => {
+                return (
+                    <div id="detailsComponent">
+            <span id="details">
+            <div>Release: {result.year}</div>
+            <div>Rating: {result.imdbrated}</div>
+            <div>Runtime: {result.imdbruntime}</div>
+            <img src={result.lgimg} alt="title-image"/>
+            </span>
+                        <span id="description">
+            <div><b>Description</b></div>
+            <div>{result.synopsis}</div>
+            </span>
+                    </div>
+                )
+            })}
+        </>
+        /*<div id="detailsComponent">
           <span id="details">
         <div>Release: {year}</div>
             <div>Rating: {ageRating}</div>
@@ -110,7 +119,7 @@ function DetailsPage() {
             <div><b>Description</b></div>
             <div>{description}</div>
                 </span>
-        </div>
+        </div>*/
     )
 }
 

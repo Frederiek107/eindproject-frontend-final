@@ -1,18 +1,19 @@
 import React, {useEffect, useState} from 'react';
 import axios from "axios";
-import TitleComponent from "../../components/TitleComponent";
+import TitleComponent from "../../components/TitleComponent/TitleComponent";
+/*import NavigateBefore from '@material-ui/icons/NavigateBefore'
+import NavigateAfter from '@material-ui/icons/NavigateAfter'*/
 
 function NewContentPage() {
-    const [idArray, setIdArray] = useState([]);
     const [query, setQuery] = useState([]);
 
     async function fetchNewContent() {
         const today = new Date();
-        today.setDate(today.getDate()-14);
+        today.setDate(today.getDate() - 14);
         const searchDate = today.toISOString().slice(0, 10);
         console.log(searchDate);
         try {
-            const resultQuery = await axios.get('https://unogsng.p.rapidapi.com/search',
+            const response = await axios.get('https://unogsng.p.rapidapi.com/search',
                 {
                     headers: {
                         'x-rapidapi-key': process.env.REACT_APP_API_KEY,
@@ -23,27 +24,27 @@ function NewContentPage() {
                         countrylist: 67,
                     }
                 });
-            console.log(resultQuery);
-            resultQuery && setQuery(resultQuery);
-            const resultQueryID = resultQuery.data.results.map((result) => {
-                return result.nfid;
-            })
-            setIdArray(resultQueryID);
-            console.log(resultQueryID);
+            console.log(response);
+            response && setQuery(response.data.results);
         } catch (e) {
             console.error(e);
         }
     }
 
-    useEffect(()=>{fetchNewContent()},[])
+    useEffect(() => {
+        fetchNewContent()
+    }, [])
 
-    return(
-
+    return (
         <div id="component-wrapper">
-            {idArray.map((ID)=>{
+            {query && query.map((result) => {
                 return <TitleComponent
-                    query={query}
-                    id={ID}
+                    netflixID={result.nfid}
+                    imdbID={result.imdbid}
+                    title={result.title}
+                    image={result.img}
+                    imdbRating={result.imdbrating}
+                    vtype={result.vtype}
                 />
             })}
         </div>
