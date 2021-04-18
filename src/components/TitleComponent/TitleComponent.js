@@ -22,7 +22,7 @@ function TitleComponent({netflixID, imdbID, title, image, imdbRating, vtype}) {
     }
 
     return (
-        <div key={netflixID} id="title-component" onClick={handleClick}>
+        <div key={netflixID} className="title-component" onClick={handleClick}>
             {removeTitleFaults(title)}
             <img id="image" src={image} alt="netflix-title"/>
             {imdbRating}

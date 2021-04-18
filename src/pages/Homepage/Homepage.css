@@ -1,71 +1,10 @@
 #homepage {
-    font-family: "Segoe UI";
-}
-
-#title-component {
-    font-family: "Segoe UI";
-    color: white;
-    background: rgba(112, 112, 112, 0.75);
-    border-radius: 10px;
-    width: 200px;
-    height: 315px;
-    padding: 15px;
-    margin: 10px;
-    display: flex;
-    flex-direction: column;
-    flex: 0 0 auto;
-}
-
-#image {
-    max-width: 190px;
-    max-height: 300px;
-}
-
-#component-wrapper {
-    display: grid;
-    /* auto auto is telling the browser to render two rows, if needed */
-    grid-template-rows: auto auto;
-    grid-auto-flow: column;
-    overflow-x: scroll;
+    font-family: "Segoe UI", sans-serif;
 }
 
 ::-webkit-scrollbar {
-    width: 0px;
-    background: transparent; /* make scrollbar transparent */
-}
-
-#arrow {
-    display: none;
-}
-
-.arrowed {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: rgba(112, 112, 112, 0.75);
-    position: relative;
-    height: 40px;
-    width: 40px;
-    padding: 10px;
-    margin: 0 20px 20px 0;
-    border: 1px solid rgba(0,0,0,0.25);
-    border-radius: 45px;
-}
-
-.arrow-1 {
-    height: 15px; width: 15px;
-    margin-right: 3px;
-    border: 1px solid white;
-    border-width: 4px 4px 0 0;
-    transform: rotate(45deg);
-}
-
-.arrow-2 {
-    height: 15px; width: 15px;
-    margin-right: 3px;
-    border: 1px solid white;
-    border-width: 4px 4px 0 0;
-    transform: rotate(-135deg);
+    width: 0;
+    background: transparent;
 }
 
 #searchbar {
@@ -74,10 +13,9 @@
     height: 40px;
     position: absolute;
     top: 3%;
-    right: 10%;
+    right: 20%;
     border-radius: 20px;
     background: rgba(255, 255, 255, 0.8);
-
 }
 
 ::placeholder {
@@ -86,4 +24,38 @@
 
 input:focus {
     outline: none;
+}
+
+.filter-wrapper {
+    border: 2px solid white;
+    border-radius: 15px;
+    padding: 10px;
+    width: 140px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    position: absolute;
+    top: 20%;
+    left: 1%;
+}
+
+#filter-options {
+    margin: 10px 5px 5px;
+    display: flex;
+}
+
+#filter-button {
+    margin: 15px 3px 3px 20px;
+    width: 100px;
+}
+
+.component-wrapper {
+    position: relative;
+    left: 15%;
+    top: 14%;
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-auto-flow: column;
+    overflow-x: scroll;
 }

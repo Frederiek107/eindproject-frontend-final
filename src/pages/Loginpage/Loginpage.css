@@ -44,7 +44,7 @@ h1 {
 }
 
 #login-button {
-    font-family: "Segoe UI";
+    font-family: "Segoe UI", sans-serif;
     font-size: 20px;
     font-weight: bold;
     color: rgb(50,55,64);
