@@ -14,8 +14,10 @@ function DetailsPage() {
     const [seriesID, setSeriesID] = useState('');
     const [trailer, setTrailer] = useState('');
     const [responseUNOGS, setResponseUNOGS] = useState(null);
+    const [responseIMDB, setResponseIMDB] = useState(null);
 
- /* async function fetchDetailsUnogs() {
+    async function fetchDetailsUnogs() {
+        console.log("HOE VAAK WORDT UNOGS AANGEROEPEN?")
         try {
             const response = await axios.get('https://unogsng.p.rapidapi.com/title',
                 {
@@ -33,94 +35,68 @@ function DetailsPage() {
             console.error(e);
         }
     }
-    useEffect(()=>{if (imdbID === null || imdbID === "notfound") {fetchDetailsUnogs()}},[])
+
+    useEffect(() => {
+        if (imdbID === null || imdbID === "notfound") {
+            fetchDetailsUnogs()
+        }
+    }, [])
 
 
-    async function fetchTMDBID() {
+    async function fetchIMDBDetails() {
         try {
-            const response = imdbID && await axios.get(`https://api.themoviedb.org/3/find/${imdbID}?api_key=${process.env.REACT_APP_API_KEY2}&language=en-US&external_source=imdb_id`);
-            if (vtype === "series") {
-                const seriesid = response.data.tv_results.map((series) => {
-                    return series.id;
-                });
-                const seriesID = seriesid[0];
-                setSeriesID(seriesID);
-            } else if (vtype === "movies") {
-                const movieid = response.data.movie_results.map((movie) => {
-                    return movie.id;
-                })
-                const movieID = movieid[0];
-                setMovieID(movieID);
-            }
+            const response = await axios.get(`https://api.themoviedb.org/3/movie/157336?api_key=${process.env.REACT_APP_API_KEY2}&append_to_response=videos`);
+            console.log(response);
         } catch (e) {
             console.error(e);
         }
     }
-   useEffect(()=> {if (imdbID !== null && imdbID !== "notfound") {fetchTMDBID()}}, []);
-
-    async function fetchTMDBvideo() {
-        if (movieID) {
-            try {
-                const response = await axios.get(`https://api.themoviedb.org/3/movie/${movieID}/videos?api_key=${process.env.REACT_APP_API_KEY2}`);
-                const urlKey = response.data.results[0].key;
-                const url = `https://www.youtube.com/watch?v=${urlKey}`;
-                setTrailer(url);
-            } catch (e) {
-                console.error(e);
-            }
-        } else if (seriesID) {
-            try {
-                const response = await axios.get(`https://api.themoviedb.org/3/tv/${seriesID}/videos?api_key=${process.env.REACT_APP_API_KEY2}`)
-                const urlKey = response.data.results[0].key;
-                const url = `https://www.youtube.com/watch?v=${urlKey}`;
-                setTrailer(url);
-            } catch (e) {
-                console.error(e);
-            }
+    useEffect(() => {
+        if (imdbID !== null && imdbID !== "notfound") {
+            fetchIMDBDetails()
         }
-    }
-    useEffect(()=>{fetchTMDBvideo()}, [movieID, seriesID]);*/
+    }, []);
+
 
     return (
         <>
-            {responseUNOGS && responseUNOGS.data.results.map((result) => {
+            {responseUNOGS !== null &&
+            responseUNOGS.data.results.map((result) => {
                 return (
-                    <div id="detailsComponent">
-            <span id="details">
-            <div>Release: {result.year}</div>
-            <div>Rating: {result.imdbrated}</div>
-            <div>Runtime: {result.imdbruntime}</div>
-            <img src={result.lgimg} alt="title-image"/>
-            </span>
-                        <span id="description">
-            <div><b>Description</b></div>
-            <div>{result.synopsis}</div>
-            </span>
+                    <div className="details-page">
+                        <h1 id="details-title">{result.title}</h1>
+                        <img id="details-image" src={result.lgimg} alt="title-image"/>
+                        <span id="details">
+                <div>Release: {result.year}</div>
+                <div>Rating: {result.imdbrated}</div>
+                <div>Runtime: {result.imdbruntime}</div>
+                <div><b>Description</b></div>
+                <div>{result.synopsis}</div>
+                </span>
                     </div>
                 )
             })}
-        </>
-        /*<div id="detailsComponent">
-          <span id="details">
-        <div>Release: {year}</div>
-            <div>Rating: {ageRating}</div>
-            <div>Runtime: {runtime}</div>
-                </span>
-            <span id="media">
+            {/*{responseUNOGS === null &&
+                responseIMDB.map((result)=>{
+                return <>
+                    <div>{result.title}</div>
+                    <div>{result.year}</div>
+                    <div>{result.length}</div>
+                    <div>{result.rating}</div>
+                    <span id="media">
                 <ReactPlayer
-                    url={trailer}
+                    url={result.trailer.link}
                     width={550}
                     height={400}
                     controls
                     light={true}
                 />
-            </span>
-            <span id="description">
-            <div><b>Description</b></div>
-            <div>{description}</div>
                 </span>
-        </div>*/
-    )
+                    <div>{result.plot}</div>
+                    </>
+                })}*/}
+        </>
+    );
 }
 
 export default DetailsPage;

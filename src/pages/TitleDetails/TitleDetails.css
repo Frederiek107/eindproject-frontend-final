@@ -1,8 +1,38 @@
+.details-page {
+    display: flex;
+    justify-content: center;
+    background: rgba(140, 135, 135, 0.5);
+    border: 2px solid white;
+    border-radius: 15px;
+    margin: 150px;
+    color: white;
+}
+
 #details {
-    align-self: flex-end;
+    border: 2px solid white;
+    border-radius: 15px;
+    width: 600px;
+    height: 300px;
+    padding: 20px;
+    align-self: center;
+    margin: 20px;
+}
+
+#details-title {
+    position: absolute;
+    top: 35%;
+    left: 18%;
+
+    margin-top: 70px;
 }
 
 #details-image {
-    max-width: 300px;
+    align-self: center;
+    margin: 40px;
+    max-width: 400px;
     max-height: 600px;
+}
+
+#description {
+    margin: 20px;
 }

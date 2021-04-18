@@ -2,7 +2,6 @@ import React, {useState, useEffect} from 'react';
 import './Homepage.css'
 import axios from "axios";
 import TitleComponent from "../../components/TitleComponent/TitleComponent";
-import Sidebar from "../../components/Sidebar/Sidebar";
 
 function Homepage() {
     const [query, setQuery] = useState([]);
@@ -42,7 +41,6 @@ function Homepage() {
     return (
         <>
             <div id="homepage">
-                <Sidebar />
                 <input type='text' name='searchbar' id='searchbar' placeholder='Search here' value={input}
                        onChange={(e) => {
                            {setInput(e.target.value)}
