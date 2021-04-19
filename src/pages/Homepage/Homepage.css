@@ -4,7 +4,6 @@
 
 ::-webkit-scrollbar {
     width: 0;
-    background: transparent;
 }
 
 #searchbar {
@@ -51,9 +50,6 @@ input:focus {
 }
 
 .component-wrapper {
-    position: relative;
-    left: 15%;
-    top: 14%;
     display: grid;
     grid-template-rows: auto auto;
     grid-auto-flow: column;

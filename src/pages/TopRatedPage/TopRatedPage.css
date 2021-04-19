@@ -1,0 +1,5 @@
+.contentPage {
+    display: grid;
+    grid-template-columns: 200px auto;
+    grid-template-rows: 1fr;
+}
