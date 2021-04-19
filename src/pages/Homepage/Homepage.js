@@ -1,8 +1,10 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import './Homepage.css'
 import axios from "axios";
 import TitleComponent from "../../components/TitleComponent/TitleComponent";
 import Sidebar from "../../components/Sidebar/Sidebar";
+import {LocationContext} from "../../components/context/LocationContextProvider";
+import {useLocation} from "react-router-dom";
 
 function Homepage() {
     const [query, setQuery] = useState([]);
@@ -11,6 +13,7 @@ function Homepage() {
     const [input, setInput] = useState('');
     const [checkedMovie, toggleCheckedMovie] = useState(false);
     const [checkedSeries, toggleCheckedSeries] = useState(false);
+    const {location} = useContext(LocationContext);
 
     async function fetchData() {
         setQuery(null);

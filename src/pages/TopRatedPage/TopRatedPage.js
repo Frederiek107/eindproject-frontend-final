@@ -1,14 +1,16 @@
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import axios from "axios";
 import TitleComponent from "../../components/TitleComponent/TitleComponent";
 import './TopRatedPage.css'
 import Sidebar from "../../components/Sidebar/Sidebar";
+import {LocationContext} from "../../components/context/LocationContextProvider";
 
 function TopRatedPage() {
     const [query, setQuery] = useState([]);
     const [checkedMovie, toggleCheckedMovie] = useState(false);
     const [checkedSeries, toggleCheckedSeries] = useState(false);
     const [data, setData] = useState([]);
+    const {location} = useContext(LocationContext);
 
     async function fetchTopRated() {
         try {
