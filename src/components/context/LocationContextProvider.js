@@ -5,10 +5,10 @@ export const LocationContext = createContext(null);
 //deze context moet ontvangen worden door: Homepage, NewContentPage, TopRatedPage
 
 function LocationContextProvider({children}) {
-    const [location, setLocation] = useState(null);
+    const [location, setLocation] = useState(432);
 
     const data = {
-        location: location,
+        location: 432,
         setLocation: fetchLocation,
     }
 

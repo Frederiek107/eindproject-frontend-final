@@ -23,7 +23,7 @@ function TopRatedPage() {
                     params: {
                         orderby: 'rating',
                         limit: '100',
-                        countrylist: '67'
+                        countrylist: location,
                     }
                 });
             console.log(response);

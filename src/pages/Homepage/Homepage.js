@@ -27,7 +27,7 @@ function Homepage() {
                     params: {
                         orderby: 'rating',
                         query: searchValue,
-                        countrylist: 67,
+                        countrylist: location,
                     }
                 });
             console.log(response);

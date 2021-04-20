@@ -1,5 +1,6 @@
 # See $ git rm --cached$ git rm --cached for more about ignoring files.
 .env
+.idea
 # dependencies
 /node_modules
 /.pnp

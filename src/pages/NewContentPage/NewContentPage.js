@@ -27,7 +27,7 @@ function NewContentPage() {
                     },
                     params: {
                         newdate: searchDate,
-                        countrylist: 67,
+                        countrylist: location,
                     }
                 });
             console.log(response);
