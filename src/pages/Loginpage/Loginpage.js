@@ -2,15 +2,29 @@ import React, {useContext, useState} from 'react';
 import './Loginpage.css';
 import {useForm} from "react-hook-form";
 import {LocationContext} from "../../components/context/LocationContextProvider";
+import {NavLink, useHistory} from 'react-router-dom';
+import axios from "axios";
 import CountryMenu from "../../components/CountryMenu/CountryMenu";
 
 function Loginpage() {
+    const history = useHistory();
     const {register, handleSubmit} = useForm();
     const [value, setValue] = useState('');
     const {location, setLocation} = useContext(LocationContext);
+    const [loginSuccess, toggleLoginSuccess] = useState(false);
 
-    function onSubmit(data) {
-        console.log(data);
+    async function onSubmit(data) {
+        try {
+            const response = await axios.post("https://polar-lake-14365.herokuapp.com/api/auth/signin", data);
+            const jwtToken = response.data.accessToken;
+            localStorage.setItem('token', response.data.accessToken);
+            console.log(response);
+            console.log(data);
+            toggleLoginSuccess(true);
+            setTimeout(()=>{history.push("/home")}, 3000);
+        } catch (e) {
+            console.error(e);
+        }
     }
 
     function handleChange(e) {
@@ -30,7 +44,7 @@ function Loginpage() {
                 <h1>Log in</h1>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <label htmlFor="username">
-                        Email:
+                        Username:
                         <input id="username" type="input" name="username" {...register("username")}/>
                     </label>
                     <label htmlFor="password">
@@ -75,10 +89,11 @@ function Loginpage() {
                         <option value="447">South Africa</option>
                     </select>
                     <button onClick={postLocation}>Submit</button>
+                    {loginSuccess === true && <p>Welcome! You're being redirected to the profile page.</p>}
                 </form>
             </div>
             <div id="signup">
-                No account? Sign up here!
+                <NavLink to="/signup">No account? Sign up here!</NavLink>
             </div>
         </div>
     )

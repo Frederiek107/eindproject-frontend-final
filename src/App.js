@@ -8,6 +8,7 @@ import NewContentPage from '../src/pages/NewContentPage/NewContentPage'
 import TitleDetails from '../src/pages/TitleDetails/TitleDetails'
 import TopRatedPage from "./pages/TopRatedPage/TopRatedPage";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
+import SignupPage from "./pages/SignupPage/SignupPage";
 import {useLocation} from "react-router-dom";
 import LocationContextProvider, {LocationContext} from "./components/context/LocationContextProvider";
 
@@ -19,6 +20,10 @@ function App() {
             <Switch>
                 <Route exact path="/">
                     <Loginpage/>
+                </Route>
+
+                <Route path="/signup">
+                    <SignupPage/>
                 </Route>
 
                 <Route path="/home">
