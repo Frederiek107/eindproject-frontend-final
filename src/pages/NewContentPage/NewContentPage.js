@@ -18,6 +18,7 @@ function NewContentPage() {
         today.setDate(today.getDate() - 14);
         const searchDate = today.toISOString().slice(0, 10);
         console.log(searchDate);
+        console.log(location);
         try {
             const response = await axios.get('https://unogsng.p.rapidapi.com/search',
                 {

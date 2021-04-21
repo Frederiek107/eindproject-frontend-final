@@ -16,7 +16,7 @@ form {
     font-weight: bold;
 }
 
-#id, #username {
+#password, #username {
     margin: 10px;
     border-radius: 5px;
 }

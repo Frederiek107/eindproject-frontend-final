@@ -1,14 +1,21 @@
 import React, {useState} from 'react';
 import './CountryMenu.css'
-import Dropdown from 'react-dropdown';
 
 function CountryMenu() {
-    const options = ['option1', 'option2', 'option3'];
+    const [value, setValue] = useState('');
+    const options = [{name: 'Argentina', id:21}, {name: 'Australia', id: 23}, {name: 'Belgium', id: 26}];
+
+    function handleChange(e) {
+        setValue(e.currentTarget.value);
+        console.log(value);
+    }
 
     return (
-        <div className="dropdown-container">
+        /*<div className="dropdown-container">
             Choose your country: <Dropdown className='dropdown-menu' options={options} placeholder="choose"/>
-        </div>
+        </div>*/
+        <>
+        </>
     )
 }
 
