@@ -2,12 +2,13 @@ import React, {useContext, useState} from 'react';
 import './Loginpage.css';
 import {useForm} from "react-hook-form";
 import {LocationContext} from "../../components/context/LocationContextProvider";
-import {NavLink, useHistory} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 import axios from "axios";
 import CountryMenu from "../../components/CountryMenu/CountryMenu";
+import UserContext from "../../components/context/UserContext";
 
 function Loginpage() {
-    const history = useHistory();
+    const {login} = useContext(UserContext);
     const {register, handleSubmit} = useForm();
     const [value, setValue] = useState('');
     const {location, setLocation} = useContext(LocationContext);
@@ -17,11 +18,10 @@ function Loginpage() {
         try {
             const response = await axios.post("https://polar-lake-14365.herokuapp.com/api/auth/signin", data);
             const jwtToken = response.data.accessToken;
-            localStorage.setItem('token', response.data.accessToken);
+            login(response.data.accessToken);
             console.log(response);
             console.log(data);
             toggleLoginSuccess(true);
-            setTimeout(()=>{history.push("/home")}, 3000);
         } catch (e) {
             console.error(e);
         }
