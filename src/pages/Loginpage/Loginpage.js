@@ -4,8 +4,10 @@ import {useForm} from "react-hook-form";
 import {LocationContext} from "../../components/context/LocationContextProvider";
 import {NavLink} from 'react-router-dom';
 import axios from "axios";
+import {UserContext} from "../../components/context/UserContext";
 
 function Loginpage() {
+    const {login} = useContext(UserContext);
     const {register, handleSubmit} = useForm();
     const [value, setValue] = useState('');
     const {location, setLocation} = useContext(LocationContext);
@@ -17,6 +19,7 @@ function Loginpage() {
             const jwtToken = response.data.accessToken;
             console.log(response);
             console.log(data);
+            login(jwtToken);
             toggleLoginSuccess(true);
         } catch (e) {
             console.error(e);
