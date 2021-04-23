@@ -9,7 +9,6 @@ import TitleDetails from '../src/pages/TitleDetails/TitleDetails'
 import TopRatedPage from "./pages/TopRatedPage/TopRatedPage";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import SignupPage from "./pages/SignupPage/SignupPage";
-import UserContextProvider, {UserContext} from "./components/context/UserContext";
 
 function App() {
 

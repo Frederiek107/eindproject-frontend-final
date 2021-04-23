@@ -5,7 +5,7 @@ import axios from "axios";
 
 function SignupPage() {
     const [registerSuccess, toggleRegisterSuccess] = useState(false);
-    const {register, handleSubmit} = useForm();
+    const {register, handleSubmit, formState: { errors }} = useForm();
     const history = useHistory();
 
     //Let op: het emailadres moet een @ bevatten
@@ -32,18 +32,28 @@ function SignupPage() {
             <form onSubmit={handleSubmit(onSubmit)}>
                 <label htmlFor="email">
                     Email:
-                    <input id="email" type="input" name="email" {...register("email")}/>
+                    <input id="email" type="input" name="email" {...register("email", {
+                        required: true,
+                        pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i
+                    })}/>
+                        {errors.email && <p>This field is required. Please use a valid email address.</p>}
                 </label>
                 <label htmlFor="username">
                     Username:
-                    <input id="username" type="input" name="username" {...register("username")}/>
+                    <input id="username" type="input" name="username" {...register("username", {
+                        required: true
+                    })}/>
+                    {errors.username && <p>This field is required.</p>}
                 </label>
                 <label htmlFor="password">
                     Password:
-                    <input id="password" type="input" name="password" {...register("password")}/>
+                    <input id="password" type="input" name="password" {...register("password", {
+                        required: true
+                    })}/>
+                    {errors.password && <p>This field is required.</p>}
                 </label>
                 <button>Submit</button>
-                {registerSuccess === true && <p>You've been registered successfully! You're now being redirected to the login-page.</p>}
+                {registerSuccess === true && <p>You've been registered successfully! You're now being redirected to the Loginpage.</p>}
             </form>
         </>
     )

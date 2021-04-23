@@ -1,10 +1,10 @@
 import React, {useState, useEffect, useContext} from 'react';
 import './Homepage.css'
-import axios from "axios";
-import TitleComponent from "../../components/TitleComponent/TitleComponent";
-import Sidebar from "../../components/Sidebar/Sidebar";
-import {LocationContext} from "../../components/context/LocationContextProvider";
-import {useLocation} from "react-router-dom";
+import axios from 'axios';
+import TitleComponent from '../../components/TitleComponent/TitleComponent';
+import Sidebar from '../../components/Sidebar/Sidebar';
+import {LocationContext} from '../../components/context/LocationContextProvider';
+import FilterCheckbox from '../../components/FilterCheckbox/FilterCheckbox';
 
 function Homepage() {
     const [query, setQuery] = useState([]);
@@ -36,7 +36,7 @@ function Homepage() {
         } catch (e) {
             console.error(e);
         }
-        setInput("");
+        setInput('');
     }
 
     useEffect(() => {
@@ -57,14 +57,14 @@ function Homepage() {
        setQuery(null);
         if (checkedMovie === true) {
             const filteredData = data.filter((result) => {
-                return result.vtype === "movie";
+                return result.vtype === 'movie';
             })
             console.log(filteredData);
             setQuery(filteredData);
         }
         else if (checkedSeries === true) {
             const filteredData = data.filter((result) => {
-                return result.vtype === "series";
+                return result.vtype === 'series';
             })
             console.log(filteredData);
             setQuery(filteredData);
@@ -72,7 +72,7 @@ function Homepage() {
     }
 
     return (
-        <div className="contentPage">
+        <div className='contentPage'>
             <Sidebar/>
                 <input type='text' name='searchbar' id='searchbar' placeholder='Search here' value={input}
                        onChange={(e) => {
@@ -82,19 +82,12 @@ function Homepage() {
                         setSearchValue(input);
                     }
                 }}/>
-                <label htmlFor='checkbox' className='filter-wrapper'>
-                    Filter by:
-                    <span id="filter-options">
-                        <input type='radio' id='filter' name='filter' onClick={()=>{handleClickMovie()}}/>
-                        Movies
-                    </span>
-                    <span id="filter-options">
-                        <input type='radio' id='filter' name='filter' onClick={()=>{handleClickSeries()}}/>
-                        Series
-                    </span>
-                    <button id='filter-button' onClick={filterSearchData}>Filter</button>
-                </label>
-                <div className="component-wrapper">
+                <FilterCheckbox
+                filtermovie={()=>{handleClickMovie()}}
+                filterseries={()=>{handleClickSeries()}}
+                filterdata={filterSearchData}
+                />
+                <div className='component-wrapper'>
                     {query && query.map((result) => {
                         return <TitleComponent
                             netflixID={result.nfid}

@@ -1,12 +1,21 @@
-import React from 'react';
-import {NavLink} from "react-router-dom";
+import React, {useContext} from 'react';
+import {NavLink, useHistory} from "react-router-dom";
 import './NavBar.css'
 import Search from '@material-ui/icons/Search'
 import NewReleases from '@material-ui/icons/NewReleases'
 import Stars from '@material-ui/icons/Stars'
 import AccountCircle from '@material-ui/icons/AccountCircle'
+import {UserContext} from "../context/UserContext";
 
 function NavBar() {
+    const history = useHistory();
+    const {logout} = useContext(UserContext);
+
+    function handleClick() {
+        logout();
+        history.push("/");
+    }
+
     return (
         <header>
             <nav>
@@ -23,6 +32,7 @@ function NavBar() {
                     <li>
                         <NavLink to="/profile" activeClassName="active-link"><AccountCircle id="icon"/>Profile</NavLink>
                     </li>
+                    <button onClick={handleClick}>Logout</button>
                 </ul>
             </nav>
         </header>

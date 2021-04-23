@@ -9,8 +9,8 @@ console.log(user);
 
     return(
         <>
-        <h1>Profielpagina</h1>
-        <p><b>Gebruikersnaam:</b> {user && user.username}</p>
+        <h1>Profile</h1>
+        <p><b>Username</b> {user && user.username}</p>
         <p><b>Email:</b> {user && user.email}</p>
         </>
     )

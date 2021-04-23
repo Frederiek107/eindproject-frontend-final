@@ -25,30 +25,6 @@ input:focus {
     outline: none;
 }
 
-.filter-wrapper {
-    border: 2px solid white;
-    border-radius: 15px;
-    padding: 10px;
-    width: 140px;
-    height: 150px;
-    display: flex;
-    flex-direction: column;
-    color: white;
-    position: absolute;
-    top: 20%;
-    left: 1%;
-}
-
-#filter-options {
-    margin: 10px 5px 5px;
-    display: flex;
-}
-
-#filter-button {
-    margin: 15px 3px 3px 20px;
-    width: 100px;
-}
-
 .component-wrapper {
     display: grid;
     grid-template-rows: auto auto;

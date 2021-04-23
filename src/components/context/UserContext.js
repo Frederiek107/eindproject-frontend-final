@@ -55,15 +55,13 @@ function UserContextProvider({children}) {
 
     async function loginFunction(jwtToken) {
         console.log(jwtToken);
+        localStorage.setItem("email", userState.email);
         localStorage.setItem("token", jwtToken);
         fetchUserData(jwtToken);
-        history.push("/profile");
     }
 
     function logoutFunction() {
-        //leeghalen van de localstorage
         localStorage.clear();
-        //user in de context weer op 'null' zetten
         setUserState({
             user: null,
             status: "pending",
@@ -73,7 +71,7 @@ function UserContextProvider({children}) {
     return (
         <UserContext.Provider value={data}>
             {children}
-            {/*{userState.status === "done" && userState.user !== null
+            {userState.status === "done" && userState.user !== null
             ? children
             : <p> Loading .... </p>}*/}
         </UserContext.Provider>
