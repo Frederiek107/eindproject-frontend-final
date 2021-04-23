@@ -12,9 +12,15 @@ function UserContextProvider({children}) {
         status: "pending",
     });
 
+    const data = {
+        ...userState,
+        login: loginFunction,
+        logout: logoutFunction,
+    }
+
     async function fetchUserData(jwtToken) {
-        const decoded = jwt_decode(jwtToken);
-        const userID = jwtToken.id;
+        /*const decoded = jwt_decode(jwtToken);
+        const userID = jwtToken.id;*/
         try {
             const response = await axios.get ("https://polar-lake-14365.herokuapp.com/api/user", {
                 headers: {
@@ -56,22 +62,20 @@ function UserContextProvider({children}) {
 
     function logoutFunction() {
         //leeghalen van de localstorage
-
+        localStorage.clear();
         //user in de context weer op 'null' zetten
-
-    }
-
-    const data = {
-        ...userState,
-        login: loginFunction,
-        logout: logoutFunction,
+        setUserState({
+            user: null,
+            status: "pending",
+        })
     }
 
     return (
         <UserContext.Provider value={data}>
-            {userState.status === "done" && userState.user !== null
+            {children}
+            {/*{userState.status === "done" && userState.user !== null
             ? children
-            : <p> Loading .... </p>}
+            : <p> Loading .... </p>}*/}
         </UserContext.Provider>
     )
 }
