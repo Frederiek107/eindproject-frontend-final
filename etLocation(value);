@@ -1,0 +1,107 @@
+[33mcommit 1486b15b28304f92d4ad33a259e9d7171809177b[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: Frederiek107 <f.a.tenbroeke@gmail.com>
+Date:   Thu Apr 22 22:46:41 2021 +0200
+
+    continued setting up usercontext
+
+[33mcommit 65bab43046b510c1c21651a47dce71c38020a863[m
+Author: Frederiek107 <f.a.tenbroeke@gmail.com>
+Date:   Wed Apr 21 20:19:02 2021 +0200
+
+    added signin/login-functions, started setting up UserContext
+
+[33mcommit b5b40e94226863ce25cdab86fe21c535ef7b972b[m
+Author: Frederiek107 <f.a.tenbroeke@gmail.com>
+Date:   Wed Apr 21 14:32:47 2021 +0200
+
+    added LocationContext
+
+[33mcommit e64b1afa917028fcf11dbca120d5dd69f6c7a73f[m
+Author: Frederiek107 <f.a.tenbroeke@gmail.com>
+Date:   Tue Apr 20 18:22:40 2021 +0200
+
+    started setting up locationcontext
+
+[33mcommit 1f38d758ad65dd6a65a98554b7f6f029fcbee099[m
+Author: Frederiek107 <f.a.tenbroeke@gmail.com>
+Date:   Mon Apr 19 21:39:52 2021 +0200
+
+    contextprovider added
+
+[33mcommit 71bc719bd8924fb3cf1ba403f31aed8ba26be2b5[m
+Author: Frederiek107 <f.a.tenbroeke@gmail.com>
+Date:   Mon Apr 19 20:49:43 2021 +0200
+
+    added filter and grid layout
+
+[33mcommit e5bb9ee15ac7d0f00f1849ab545b640d6110a424[m
+Author: Frederiek107 <f.a.tenbroeke@gmail.com>
+Date:   Sun Apr 18 22:19:54 2021 +0200
+
+    added sidebar and (non-working) filter
+
+[33mcommit 26608cac130232a14f2dea9c7c2627243726518b[m
+Author: Frederiek107 <f.a.tenbroeke@gmail.com>
+Date:   Sun Apr 18 18:25:59 2021 +0200
+
+    still wip
+
+[33mcommit cb8f89865ba63377569eae65740ca1e3254e9ed7[m
+Author: Frederiek107 <f.a.tenbroeke@gmail.com>
+Date:   Sun Apr 18 00:55:53 2021 +0200
+
+    wip
+
+[33mcommit 8d9f13c363d0934775aa9742f5f9300b0e7c5cec[m
+Author: Frederiek107 <f.a.tenbroeke@gmail.com>
+Date:   Fri Apr 16 15:11:14 2021 +0200
+
+    minor change
+
+[33mcommit 1a0dbeb0d4f448a91ee175ef309eace61893d6f8[m
+Author: Frederiek107 <f.a.tenbroeke@gmail.com>
+Date:   Fri Apr 16 15:06:44 2021 +0200
+
+    added login, home, details, topmenu
+
+[33mcommit 0018d7466a41cc8d56a6cccbc8f16dc2fc56c161[m
+Author: Frederiek107 <f.a.tenbroeke@gmail.com>
+Date:   Fri Apr 16 14:58:50 2021 +0200
+
+    added main components
+
+[33mcommit a156177290efe722ca73849a36569d9796c9fb18[m
+Author: Frederiek107 <f.a.tenbroeke@gmail.com>
+Date:   Fri Apr 16 14:15:55 2021 +0200
+
+    routing added
+
+[33mcommit b38fff14469aecd8bd20dd6fb9917d8969f83b0b[m
+Author: Frederiek107 <f.a.tenbroeke@gmail.com>
+Date:   Fri Apr 16 14:07:09 2021 +0200
+
+    set up folder structure
+
+[33mcommit 373e49a44698045d88cbf6e85517b4585f4fe09e[m
+Author: Frederiek107 <f.a.tenbroeke@gmail.com>
+Date:   Fri Apr 16 13:48:53 2021 +0200
+
+    added .env to gitignore
+
+[33mcommit 22c4d6a68e6d94e847542f292bee6780996c5ed1[m
+Author: Frederiek107 <f.a.tenbroeke@gmail.com>
+Date:   Fri Apr 16 13:44:18 2021 +0200
+
+    added .env to gitignore
+
+[33mcommit cf9e64d16504b2edb9ff92cb948ccf531a54a64d[m
+Author: Frederiek107 <f.a.tenbroeke@gmail.com>
+Date:   Fri Apr 16 13:32:59 2021 +0200
+
+    added .env to .gitignore
+
+[33mcommit 034c0a2bf2bd76c3c7bd6c80edc44251fdeea925[m
+Author: Frederiek107 <f.a.tenbroeke@gmail.com>
+Date:   Fri Apr 16 13:25:58 2021 +0200
+
+    Initialize project using Create React App

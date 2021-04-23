@@ -3,7 +3,6 @@ import {useForm} from "react-hook-form";
 import {useHistory} from 'react-router-dom';
 import axios from "axios";
 
-
 function SignupPage() {
     const [registerSuccess, toggleRegisterSuccess] = useState(false);
     const {register, handleSubmit} = useForm();
