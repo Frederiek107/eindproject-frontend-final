@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import './App.css';
 import Loginpage from '../src/pages/Loginpage/Loginpage'
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
@@ -9,8 +9,6 @@ import TitleDetails from '../src/pages/TitleDetails/TitleDetails'
 import TopRatedPage from "./pages/TopRatedPage/TopRatedPage";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import SignupPage from "./pages/SignupPage/SignupPage";
-import {useLocation} from "react-router-dom";
-import LocationContextProvider, {LocationContext} from "./components/context/LocationContextProvider";
 
 function App() {
 
