@@ -1,7 +1,6 @@
 import React, {createContext, useState, useEffect} from 'react';
-import {useHistory} from "react-router-dom";
-import jwt_decode from "jwt-decode";
-import axios from "axios";
+import {useHistory} from 'react-router-dom';
+import axios from 'axios';
 
 export const UserContext = createContext({});
 
@@ -9,7 +8,7 @@ function UserContextProvider({children}) {
     const history = useHistory();
     const [userState, setUserState] = useState({
         user: null,
-        status: "pending",
+        status: 'pending',
     });
 
     const data = {
@@ -19,13 +18,11 @@ function UserContextProvider({children}) {
     }
 
     async function fetchUserData(jwtToken) {
-        /*const decoded = jwt_decode(jwtToken);
-        const userID = jwtToken.id;*/
         try {
-            const response = await axios.get ("https://polar-lake-14365.herokuapp.com/api/user", {
+            const response = await axios.get ('https://polar-lake-14365.herokuapp.com/api/user', {
                 headers: {
-                    "Content-Type": "application/json",
-                    "Authorization": `Bearer ${jwtToken}`,
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${jwtToken}`,
                 }
             })
             setUserState({
@@ -34,7 +31,7 @@ function UserContextProvider({children}) {
                     email: response.data.email,
                     id: response.data.id,
                 },
-                status: "done",
+                status: 'done',
             });
         } catch (e) {
             console.error(e);
@@ -48,15 +45,15 @@ function UserContextProvider({children}) {
         } else {
             setUserState({
                 user: null,
-                status: "done",
+                status: 'done',
             })
         }
     },[])
 
     async function loginFunction(jwtToken) {
         console.log(jwtToken);
-        localStorage.setItem("email", userState.email);
-        localStorage.setItem("token", jwtToken);
+        localStorage.setItem('email', userState.email);
+        localStorage.setItem('token', jwtToken);
         fetchUserData(jwtToken);
     }
 
@@ -64,14 +61,14 @@ function UserContextProvider({children}) {
         localStorage.clear();
         setUserState({
             user: null,
-            status: "pending",
+            status: 'pending',
         })
     }
 
     return (
         <UserContext.Provider value={data}>
             {children}
-            {userState.status === "done" && userState.user !== null
+            {userState.status === 'done' && userState.user !== null
             ? children
             : <p> Loading .... </p>}*/}
         </UserContext.Provider>

@@ -43,3 +43,5 @@ function DropdownMenu({selectedValue, onChangeFunction}) {
         </>
     )
 }
+
+export default DropdownMenu;

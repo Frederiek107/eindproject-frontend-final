@@ -1,5 +1,5 @@
-import React from "react";
-import {useHistory} from "react-router-dom";
+import React from 'react';
+import {useHistory} from 'react-router-dom';
 import './TitleComponent.css'
 
 function TitleComponent({netflixID, imdbID, title, image, imdbRating, vtype}) {
@@ -22,9 +22,9 @@ function TitleComponent({netflixID, imdbID, title, image, imdbRating, vtype}) {
     }
 
     return (
-        <div key={netflixID} className="title-component" onClick={handleClick}>
+        <div key={netflixID} className='title-component' onClick={handleClick}>
             {removeTitleFaults(title)}
-            <img id="image" src={image} alt="netflix-title"/>
+            <img id='image' src={image} alt='netflix-title'/>
             {imdbRating}
         </div>
     );

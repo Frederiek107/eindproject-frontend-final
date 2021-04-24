@@ -1,17 +1,18 @@
 import React, {useContext} from 'react';
-import {UserContext} from "../../components/context/UserContext";
+import {UserContext} from '../../context/UserContext';
 import './ProfilePage.css'
-import axios from "axios";
+import NavBar from '../../components/NavBar/NavBar';
 
 function ProfilePage() {
-const {user} = useContext(UserContext);
-console.log(user);
+    const {user} = useContext(UserContext);
+    console.log(user);
 
-    return(
+    return (
         <>
-        <h1>Profile</h1>
-        <p><b>Username</b> {user && user.username}</p>
-        <p><b>Email:</b> {user && user.email}</p>
+            <NavBar/>
+            <h1>Profile</h1>
+            <p><b>Username</b> {user && user.username}</p>
+            <p><b>Email:</b> {user && user.email}</p>
         </>
     )
 }

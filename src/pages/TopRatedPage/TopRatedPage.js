@@ -1,14 +1,13 @@
 import React, {useContext, useEffect, useState} from 'react';
-import axios from "axios";
-import TitleComponent from "../../components/TitleComponent/TitleComponent";
+import axios from 'axios';
+import TitleComponent from '../../components/TitleComponent/TitleComponent';
 import './TopRatedPage.css'
-import Sidebar from "../../components/Sidebar/Sidebar";
-import {LocationContext} from "../../components/context/LocationContextProvider";
+import Sidebar from '../../components/Sidebar/Sidebar';
+import {LocationContext} from '../../context/LocationContextProvider';
+import NavBar from '../../components/NavBar/NavBar';
 
 function TopRatedPage() {
     const [query, setQuery] = useState([]);
-    const [checkedMovie, toggleCheckedMovie] = useState(false);
-    const [checkedSeries, toggleCheckedSeries] = useState(false);
     const [data, setData] = useState([]);
     const {location} = useContext(LocationContext);
 
@@ -38,62 +37,28 @@ function TopRatedPage() {
         fetchTopRated();
     }, [])
 
-    function handleClickMovie() {
-        toggleCheckedMovie(true);
-        toggleCheckedSeries(false);
-    }
-
-    function handleClickSeries () {
-        toggleCheckedMovie(false);
-        toggleCheckedSeries(true);
-    }
-
-    function filterSearchData() {
-        setQuery(null);
-        if (checkedMovie === true) {
-            const filteredData = data.filter((result) => {
-                return result.vtype === "movie";
-            })
-            console.log(filteredData);
-            setQuery(filteredData);
-        }
-        else if (checkedSeries === true) {
-            const filteredData = data.filter((result) => {
-                return result.vtype === "series";
-            })
-            console.log(filteredData);
-            setQuery(filteredData);
-        }
-    }
-
     return (
-        <div className="contentPage">
-        <Sidebar/>
-        <div className="component-wrapper">
-            {query && query.map((result) => {
-                return <TitleComponent
-                    netflixID={result.nfid}
-                    imdbID={result.imdbid}
-                    title={result.title}
-                    image={result.img}
-                    imdbRating={result.imdbrating}
-                    vtype={result.vtype}
+        <>
+            <NavBar/>
+            <div className='contentPage'>
+                <Sidebar
+                    data={data}
+                    setQuery={setQuery}
                 />
-            })}
-        </div>
-            <label htmlFor='checkbox' className='filter-wrapper'>
-                Filter by:
-                <span id="filter-options">
-                        <input type='radio' id='filter' name='filter' onClick={()=>{handleClickMovie()}}/>
-                        Movies
-                    </span>
-                <span id="filter-options">
-                        <input type='radio' id='filter' name='filter' onClick={()=>{handleClickSeries()}}/>
-                        Series
-                    </span>
-                <button id='filter-button' onClick={filterSearchData}>Filter</button>
-            </label>
-        </div>
+                <div className='component-wrapper'>
+                    {query && query.map((result) => {
+                        return <TitleComponent
+                            netflixID={result.nfid}
+                            imdbID={result.imdbid}
+                            title={result.title}
+                            image={result.img}
+                            imdbRating={result.imdbrating}
+                            vtype={result.vtype}
+                        />
+                    })}
+                </div>
+            </div>
+        </>
     )
 }
 

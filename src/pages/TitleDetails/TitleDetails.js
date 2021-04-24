@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import axios from "axios";
-import ReactPlayer from "react-player";
+import axios from 'axios';
 import {useLocation, useParams} from 'react-router-dom'
 import './TitleDetails.css'
 
@@ -37,7 +36,7 @@ function DetailsPage() {
     }
 
     useEffect(() => {
-        if (imdbID === null || imdbID === "notfound") {
+        if (imdbID === null || imdbID === 'notfound') {
             fetchDetailsUnogs()
         }
     }, [])
@@ -52,7 +51,7 @@ function DetailsPage() {
         }
     }
     useEffect(() => {
-        if (imdbID !== null && imdbID !== "notfound") {
+        if (imdbID !== null && imdbID !== 'notfound') {
             fetchIMDBDetails()
         }
     }, []);
@@ -63,10 +62,10 @@ function DetailsPage() {
             {responseUNOGS !== null &&
             responseUNOGS.data.results.map((result) => {
                 return (
-                    <div className="details-page">
-                        <h1 id="details-title">{result.title}</h1>
-                        <img id="details-image" src={result.lgimg} alt="title-image"/>
-                        <span id="details">
+                    <div className='details-page'>
+                        <h1 id='details-title'>{result.title}</h1>
+                        <img id='details-image' src={result.lgimg} alt='title-image'/>
+                        <span id='details'>
                 <div>Release: {result.year}</div>
                 <div>Rating: {result.imdbrated}</div>
                 <div>Runtime: {result.imdbruntime}</div>

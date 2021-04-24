@@ -1,11 +1,11 @@
 import React, {useContext} from 'react';
-import {NavLink, useHistory} from "react-router-dom";
+import {NavLink, useHistory} from 'react-router-dom';
 import './NavBar.css'
 import Search from '@material-ui/icons/Search'
 import NewReleases from '@material-ui/icons/NewReleases'
 import Stars from '@material-ui/icons/Stars'
 import AccountCircle from '@material-ui/icons/AccountCircle'
-import {UserContext} from "../context/UserContext";
+import {UserContext} from '../../context/UserContext';
 
 function NavBar() {
     const history = useHistory();
@@ -13,7 +13,7 @@ function NavBar() {
 
     function handleClick() {
         logout();
-        history.push("/");
+        history.push('/');
     }
 
     return (
@@ -21,16 +21,16 @@ function NavBar() {
             <nav>
                 <ul>
                     <li>
-                        <NavLink to="/home" activeClassName="active-link"><Search id="icon"/>Search</NavLink>
+                        <NavLink to='/home' activeClassName='active-link'><Search id='icon'/>Search</NavLink>
                     </li>
                     <li>
-                        <NavLink to="/new" activeClassName="active-link"><NewReleases id="icon"/>New Content</NavLink>
+                        <NavLink to='/new' activeClassName='active-link'><NewReleases id='icon'/>New Content</NavLink>
                     </li>
                     <li>
-                        <NavLink to="/toprated" activeClassName="active-link"><Stars id="icon"/>Top rated</NavLink>
+                        <NavLink to='/toprated' activeClassName='active-link'><Stars id='icon'/>Top rated</NavLink>
                     </li>
                     <li>
-                        <NavLink to="/profile" activeClassName="active-link"><AccountCircle id="icon"/>Profile</NavLink>
+                        <NavLink to='/profile' activeClassName='active-link'><AccountCircle id='icon'/>Profile</NavLink>
                     </li>
                     <button onClick={handleClick}>Logout</button>
                 </ul>

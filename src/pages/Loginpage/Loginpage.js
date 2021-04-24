@@ -1,11 +1,11 @@
 import React, {useContext, useState} from 'react';
 import './Loginpage.css';
 import {useForm} from 'react-hook-form';
-import {LocationContext} from '../../components/context/LocationContextProvider';
+import {LocationContext} from '../../context/LocationContextProvider';
 import {NavLink, useHistory} from 'react-router-dom';
 import axios from 'axios';
-import {UserContext} from '../../components/context/UserContext';
-import DropdownMenu from '../../components/DropdownMenu'
+import {UserContext} from '../../context/UserContext';
+import DropdownMenu from "../../components/DropdownMenu/DropdownMenu";
 
 function Loginpage() {
     const history = useHistory();

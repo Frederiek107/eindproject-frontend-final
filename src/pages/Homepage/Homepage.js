@@ -3,17 +3,16 @@ import './Homepage.css'
 import axios from 'axios';
 import TitleComponent from '../../components/TitleComponent/TitleComponent';
 import Sidebar from '../../components/Sidebar/Sidebar';
-import {LocationContext} from '../../components/context/LocationContextProvider';
-import FilterCheckbox from '../../components/FilterCheckbox/FilterCheckbox';
+import {LocationContext} from '../../context/LocationContextProvider';
+import NavBar from '../../components/NavBar/NavBar';
+import Searchbar from '../../components/Searchbar/Searchbar';
 
 function Homepage() {
     const [query, setQuery] = useState([]);
     const [data, setData] = useState([]);
     const [searchValue, setSearchValue] = useState('');
-    const [input, setInput] = useState('');
-    const [checkedMovie, toggleCheckedMovie] = useState(false);
-    const [checkedSeries, toggleCheckedSeries] = useState(false);
     const {location} = useContext(LocationContext);
+    const [input, setInput] = useState('');
 
     async function fetchData() {
         setQuery(null);
@@ -43,50 +42,19 @@ function Homepage() {
         if (searchValue) fetchData()
     }, [searchValue])
 
-    function handleClickMovie() {
-        toggleCheckedMovie(true);
-        toggleCheckedSeries(false);
-    }
-
-    function handleClickSeries () {
-        toggleCheckedMovie(false);
-        toggleCheckedSeries(true);
-    }
-
-    function filterSearchData() {
-       setQuery(null);
-        if (checkedMovie === true) {
-            const filteredData = data.filter((result) => {
-                return result.vtype === 'movie';
-            })
-            console.log(filteredData);
-            setQuery(filteredData);
-        }
-        else if (checkedSeries === true) {
-            const filteredData = data.filter((result) => {
-                return result.vtype === 'series';
-            })
-            console.log(filteredData);
-            setQuery(filteredData);
-        }
-    }
-
     return (
+        <>
+        <NavBar/>
         <div className='contentPage'>
-            <Sidebar/>
-                <input type='text' name='searchbar' id='searchbar' placeholder='Search here' value={input}
-                       onChange={(e) => {
-                           setInput(e.target.value)
-                       }} onKeyDown={(e) => {
-                    if (e.key === 'Enter') {
-                        setSearchValue(input);
-                    }
-                }}/>
-                <FilterCheckbox
-                filtermovie={()=>{handleClickMovie()}}
-                filterseries={()=>{handleClickSeries()}}
-                filterdata={filterSearchData}
-                />
+            <Sidebar
+            data={data}
+            setQuery={setQuery}
+            />
+            <Searchbar
+            input={input}
+            setInput={setInput}
+            setSearchValue={setSearchValue}
+            />
                 <div className='component-wrapper'>
                     {query && query.map((result) => {
                         return <TitleComponent
@@ -100,6 +68,7 @@ function Homepage() {
                     })}
                 </div>
         </div>
+        </>
     )
 }
 

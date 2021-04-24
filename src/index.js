@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import LocationContextProvider, {LocationContext} from "./components/context/LocationContextProvider";
-import UserContextProvider from "./components/context/UserContext";
+import LocationContextProvider, {LocationContext} from "./context/LocationContextProvider";
+import UserContextProvider from "./context/UserContext";
 import {BrowserRouter} from "react-router-dom";
 
 ReactDOM.render(
