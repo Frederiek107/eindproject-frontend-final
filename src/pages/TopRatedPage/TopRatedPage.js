@@ -40,7 +40,7 @@ function TopRatedPage() {
     return (
         <>
             <NavBar/>
-            <div className='contentPage'>
+            <div className='contentpage'>
                 <Sidebar
                     data={data}
                     setQuery={setQuery}

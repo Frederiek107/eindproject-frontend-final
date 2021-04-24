@@ -44,17 +44,17 @@ function Homepage() {
 
     return (
         <>
-        <NavBar/>
-        <div className='contentPage'>
-            <Sidebar
-            data={data}
-            setQuery={setQuery}
-            />
+            <NavBar/>
             <Searchbar
-            input={input}
-            setInput={setInput}
-            setSearchValue={setSearchValue}
+                input={input}
+                setInput={setInput}
+                setSearchValue={setSearchValue}
             />
+            <div className='contentpage'>
+                <Sidebar
+                    data={data}
+                    setQuery={setQuery}
+                />
                 <div className='component-wrapper'>
                     {query && query.map((result) => {
                         return <TitleComponent
@@ -67,7 +67,7 @@ function Homepage() {
                         />
                     })}
                 </div>
-        </div>
+            </div>
         </>
     )
 }

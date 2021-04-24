@@ -11,6 +11,18 @@ function UserContextProvider({children}) {
         status: 'pending',
     });
 
+    useEffect(()=>{
+        const token = localStorage.getItem('token');
+        if (token !== undefined && userState.user === null) {
+            fetchUserData(token);
+        } else {
+            setUserState({
+                user: null,
+                status: 'done',
+            })
+        }
+    },[])
+
     const data = {
         ...userState,
         login: loginFunction,
@@ -38,23 +50,12 @@ function UserContextProvider({children}) {
         }
     }
 
-    useEffect(()=>{
-        const token = localStorage.getItem('token');
-        if (token !== undefined && userState.user === null) {
-            fetchUserData(token);
-        } else {
-            setUserState({
-                user: null,
-                status: 'done',
-            })
-        }
-    },[])
-
     async function loginFunction(jwtToken) {
         console.log(jwtToken);
         localStorage.setItem('email', userState.email);
         localStorage.setItem('token', jwtToken);
         fetchUserData(jwtToken);
+        setTimeout(()=>{history.push('/profile')}, 3000);
     }
 
     function logoutFunction() {
@@ -65,12 +66,15 @@ function UserContextProvider({children}) {
         })
     }
 
+    function checkAuthentication() {
+        if (useState.status === 'pending') {
+
+        }
+    }
+
     return (
         <UserContext.Provider value={data}>
             {children}
-            {userState.status === 'done' && userState.user !== null
-            ? children
-            : <p> Loading .... </p>}*/}
         </UserContext.Provider>
     )
 }

@@ -41,11 +41,11 @@ function NewContentPage() {
     return (
         <>
             <NavBar/>
-            <div className='contentPage'>
-                <Sidebar
-                    data={data}
-                    setQuery={setQuery}
-                />
+            <Sidebar
+                data={data}
+                setQuery={setQuery}
+            />
+            <div className='contentpage'>
                 <div className='component-wrapper'>
                     {query && query.map((result) => {
                         return <TitleComponent

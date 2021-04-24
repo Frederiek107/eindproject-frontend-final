@@ -10,9 +10,11 @@ function ProfilePage() {
     return (
         <>
             <NavBar/>
-            <h1>Profile</h1>
+            <div id='page'>
+            <h2>Profile</h2>
             <p><b>Username</b> {user && user.username}</p>
             <p><b>Email:</b> {user && user.email}</p>
+            </div>
         </>
     )
 }

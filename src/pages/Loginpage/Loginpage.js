@@ -2,13 +2,12 @@ import React, {useContext, useState} from 'react';
 import './Loginpage.css';
 import {useForm} from 'react-hook-form';
 import {LocationContext} from '../../context/LocationContextProvider';
-import {NavLink, useHistory} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 import axios from 'axios';
 import {UserContext} from '../../context/UserContext';
-import DropdownMenu from "../../components/DropdownMenu/DropdownMenu";
+import DropdownMenu from '../../components/DropdownMenu/DropdownMenu';
 
 function Loginpage() {
-    const history = useHistory();
     const {login} = useContext(UserContext);
     const {register, handleSubmit} = useForm();
     const [value, setValue] = useState('');
@@ -23,7 +22,6 @@ function Loginpage() {
             console.log(data);
             login(jwtToken);
             toggleLoginSuccess(true);
-            history.push('/profile');
         } catch (e) {
             console.error(e);
         }

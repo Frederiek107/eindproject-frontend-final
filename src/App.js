@@ -1,18 +1,20 @@
 import React from 'react';
 import './App.css';
 import Loginpage from '../src/pages/Loginpage/Loginpage'
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import {Switch, Route} from 'react-router-dom';
 import Homepage from '../src/pages/Homepage/Homepage'
 import NewContentPage from '../src/pages/NewContentPage/NewContentPage'
 import TitleDetails from '../src/pages/TitleDetails/TitleDetails'
 import TopRatedPage from './pages/TopRatedPage/TopRatedPage';
 import ProfilePage from './pages/ProfilePage/ProfilePage';
 import SignupPage from './pages/SignupPage/SignupPage';
+import UserContextProvider from './context/UserContext';
+
+//inbouwen dat pagina's niet te bereiken zijn indien niet ingelogd
 
 function App() {
 
     return (
-        <Router>
 
             <Switch>
 
@@ -24,7 +26,7 @@ function App() {
                     <SignupPage/>
                 </Route>
 
-                <Route path='/home'>
+                <Route exact path='/home'>
                     <Homepage/>
                 </Route>
 
@@ -45,7 +47,6 @@ function App() {
                 </Route>
 
             </Switch>
-        </Router>
     );
 }
 

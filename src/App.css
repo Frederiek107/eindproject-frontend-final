@@ -1,10 +1,14 @@
 body {
+    font-family: 'Segoe UI', sans-serif;
     overflow-x: hidden;
     background-image: url("assets/photo-1598931587008-88cc8a5e3a40.jpg");
-    margin-top: 0;
-    margin-right: 0;
+    margin: 0;
 }
-
+/*
 body > #root > div {
     height: 100vh;
+}*/
+
+.contentpage {
+    height: 100%;
 }

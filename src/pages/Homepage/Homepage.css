@@ -1,20 +1,5 @@
-#homepage {
-    font-family: "Segoe UI", sans-serif;
-}
-
 ::-webkit-scrollbar {
     width: 0;
-}
-
-#searchbar {
-    font-size: large;
-    width: 400px;
-    height: 40px;
-    position: absolute;
-    top: 3%;
-    right: 20%;
-    border-radius: 20px;
-    background: rgba(255, 255, 255, 0.8);
 }
 
 ::placeholder {
@@ -26,6 +11,8 @@ input:focus {
 }
 
 .component-wrapper {
+    display: block;
+    margin-left: 200px;
     display: grid;
     grid-template-rows: auto auto;
     grid-auto-flow: column;

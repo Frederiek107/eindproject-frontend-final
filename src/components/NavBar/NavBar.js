@@ -21,6 +21,9 @@ function NavBar() {
             <nav>
                 <ul>
                     <li>
+                        <NavLink to='/profile' activeClassName='active-link'><AccountCircle id='icon'/>Profile</NavLink>
+                    </li>
+                    <li>
                         <NavLink to='/home' activeClassName='active-link'><Search id='icon'/>Search</NavLink>
                     </li>
                     <li>
@@ -28,9 +31,6 @@ function NavBar() {
                     </li>
                     <li>
                         <NavLink to='/toprated' activeClassName='active-link'><Stars id='icon'/>Top rated</NavLink>
-                    </li>
-                    <li>
-                        <NavLink to='/profile' activeClassName='active-link'><AccountCircle id='icon'/>Profile</NavLink>
                     </li>
                     <button onClick={handleClick}>Logout</button>
                 </ul>
