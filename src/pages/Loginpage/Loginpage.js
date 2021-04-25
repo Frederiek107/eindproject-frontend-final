@@ -27,11 +27,8 @@ function Loginpage() {
         }
     }
 
-    function handleChange(e) {
-        setValue(e.currentTarget.value);
-    }
-
     function postLocation() {
+        console.log(value);
         setLocation(value);
         console.log(`AANGEKLIKT: ${value}`);
         console.log(`INGESTELDE LOCATIE: ${location}`);
@@ -53,7 +50,7 @@ function Loginpage() {
                     </label>
                     <DropdownMenu
                     selectedValue={value}
-                    onChangeFunction={handleChange}
+                    onChangeFunction={(e)=>{setValue(e.currentTarget.value)}}
                     />
                     <button onClick={postLocation}>Submit</button>
                     {loginSuccess === true && <p>Welcome! You're being redirected to the profile page.</p>}

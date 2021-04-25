@@ -1,14 +1,14 @@
 import React, {useState, useEffect, useContext} from 'react';
+import {Redirect} from 'react-router-dom';
 import './Homepage.css'
 import axios from 'axios';
 import TitleComponent from '../../components/TitleComponent/TitleComponent';
 import Sidebar from '../../components/Sidebar/Sidebar';
 import {LocationContext} from '../../context/LocationContextProvider';
 import NavBar from '../../components/NavBar/NavBar';
-import Searchbar from '../../components/Searchbar/Searchbar';
 
-function Homepage() {
-    const [query, setQuery] = useState([]);
+function Homepage({loginStatus}) {
+    const [query, setQuery] = useState(null);
     const [data, setData] = useState([]);
     const [searchValue, setSearchValue] = useState('');
     const {location} = useContext(LocationContext);
@@ -30,6 +30,7 @@ function Homepage() {
                     }
                 });
             console.log(response);
+            console.log(location);
             response && setQuery(response.data.results);
             setData(response.data.results);
         } catch (e) {
@@ -44,30 +45,34 @@ function Homepage() {
 
     return (
         <>
-            <NavBar/>
-            <Searchbar
-                input={input}
-                setInput={setInput}
-                setSearchValue={setSearchValue}
-            />
-            <div className='contentpage'>
-                <Sidebar
-                    data={data}
-                    setQuery={setQuery}
+            {loginStatus === 'done' &&
+            <div className = 'homepage'>
+                <NavBar
+                    input={input}
+                    setInput={setInput}
+                    setSearchValue={setSearchValue}
                 />
-                <div className='component-wrapper'>
-                    {query && query.map((result) => {
-                        return <TitleComponent
-                            netflixID={result.nfid}
-                            imdbID={result.imdbid}
-                            title={result.title}
-                            image={result.img}
-                            imdbRating={result.imdbrating}
-                            vtype={result.vtype}
-                        />
-                    })}
+                <div className='contentpage'>
+                    <Sidebar
+                        data={data}
+                        setQuery={setQuery}
+                    />
+                    <div className='component-wrapper'>
+                        {query!==null ? query.map((result) => {
+                            return <TitleComponent
+                                netflixID={result.nfid}
+                                imdbID={result.imdbid}
+                                title={result.title}
+                                image={result.img}
+                                imdbRating={result.imdbrating}
+                                vtype={result.vtype}
+                            />
+                        }) : <div id='message'>Start searching!</div> }
+                    </div>
                 </div>
             </div>
+            }
+            {loginStatus === 'pending' && <Redirect to='/'/>}
         </>
     )
 }

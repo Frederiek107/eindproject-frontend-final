@@ -5,8 +5,9 @@ import './TopRatedPage.css'
 import Sidebar from '../../components/Sidebar/Sidebar';
 import {LocationContext} from '../../context/LocationContextProvider';
 import NavBar from '../../components/NavBar/NavBar';
+import {Redirect} from "react-router-dom";
 
-function TopRatedPage() {
+function TopRatedPage({loginStatus}) {
     const [query, setQuery] = useState([]);
     const [data, setData] = useState([]);
     const {location} = useContext(LocationContext);
@@ -26,6 +27,7 @@ function TopRatedPage() {
                     }
                 });
             console.log(response);
+            console.log(location);
             response && setQuery(response.data.results);
             setData(response.data.results);
         } catch (e) {
@@ -39,25 +41,30 @@ function TopRatedPage() {
 
     return (
         <>
-            <NavBar/>
-            <div className='contentpage'>
-                <Sidebar
-                    data={data}
-                    setQuery={setQuery}
-                />
-                <div className='component-wrapper'>
-                    {query && query.map((result) => {
-                        return <TitleComponent
-                            netflixID={result.nfid}
-                            imdbID={result.imdbid}
-                            title={result.title}
-                            image={result.img}
-                            imdbRating={result.imdbrating}
-                            vtype={result.vtype}
-                        />
-                    })}
+            {loginStatus === 'done' &&
+            <>
+                <NavBar/>
+                <div className='contentpage'>
+                    <Sidebar
+                        data={data}
+                        setQuery={setQuery}
+                    />
+                    <div className='component-wrapper'>
+                        {query && query.map((result) => {
+                            return <TitleComponent
+                                netflixID={result.nfid}
+                                imdbID={result.imdbid}
+                                title={result.title}
+                                image={result.img}
+                                imdbRating={result.imdbrating}
+                                vtype={result.vtype}
+                            />
+                        })}
+                    </div>
                 </div>
-            </div>
+            </>
+            }
+            {loginStatus === 'pending' && <Redirect to='/'/>}
         </>
     )
 }

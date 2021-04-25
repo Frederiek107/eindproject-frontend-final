@@ -15,9 +15,11 @@
 #filter-options {
     margin: 10px 5px 5px;
     display: flex;
+    cursor: pointer;
 }
 
 #filter-button {
     margin: 15px 3px 3px 20px;
     width: 100px;
+    cursor: pointer;
 }

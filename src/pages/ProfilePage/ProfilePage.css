@@ -1,0 +1,25 @@
+.profilepage {
+    background: rgba(25, 20, 26, 0.95);
+    color: white;
+    position: absolute;
+    left: 22%;
+    margin: 20px;
+    border: rgb(50,55,64) 2px solid;
+    border-radius: 15px;
+    width: 800px;
+    height: 600px;
+}
+
+.profile-title {
+    font-size: 24px;
+    padding: 20px;
+    margin: 20px;
+    height: 70px;
+}
+
+.profile-content {
+    padding: 20px;
+    margin: 50px 20px 20px;
+    border: rgb(50,55,64) 2px solid;
+    border-radius: 15px;
+}

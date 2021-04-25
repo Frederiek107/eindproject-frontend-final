@@ -4,9 +4,10 @@ import TitleComponent from '../../components/TitleComponent/TitleComponent';
 import Sidebar from '../../components/Sidebar/Sidebar';
 import {LocationContext} from '../../context/LocationContextProvider';
 import fetchDate from '../../helpers/fetchDate';
-import NavBar from "../../components/NavBar/NavBar";
+import NavBar from '../../components/NavBar/NavBar';
+import {Redirect} from 'react-router-dom';
 
-function NewContentPage() {
+function NewContentPage({loginStatus}) {
     const [query, setQuery] = useState([]);
     const [data, setData] = useState([]);
     const {location} = useContext(LocationContext);
@@ -27,6 +28,7 @@ function NewContentPage() {
                     }
                 });
             console.log(response);
+            console.log(location);
             response && setQuery(response.data.results);
             setData(response.data.results);
         } catch (e) {
@@ -40,25 +42,30 @@ function NewContentPage() {
 
     return (
         <>
-            <NavBar/>
-            <Sidebar
-                data={data}
-                setQuery={setQuery}
-            />
-            <div className='contentpage'>
-                <div className='component-wrapper'>
-                    {query && query.map((result) => {
-                        return <TitleComponent
-                            netflixID={result.nfid}
-                            imdbID={result.imdbid}
-                            title={result.title}
-                            image={result.img}
-                            imdbRating={result.imdbrating}
-                            vtype={result.vtype}
-                        />
-                    })}
+            {loginStatus === 'done' &&
+            <>
+                <NavBar/>
+                <Sidebar
+                    data={data}
+                    setQuery={setQuery}
+                />
+                <div className='contentpage'>
+                    <div className='component-wrapper'>
+                        {query && query.map((result) => {
+                            return <TitleComponent
+                                netflixID={result.nfid}
+                                imdbID={result.imdbid}
+                                title={result.title}
+                                image={result.img}
+                                imdbRating={result.imdbrating}
+                                vtype={result.vtype}
+                            />
+                        })}
+                    </div>
                 </div>
-            </div>
+            </>
+            }
+            {loginStatus === 'pending' && <Redirect to='/'/>}
         </>
     )
 }

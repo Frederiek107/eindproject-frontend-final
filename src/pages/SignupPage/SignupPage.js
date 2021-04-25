@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {useForm} from 'react-hook-form';
 import {useHistory} from 'react-router-dom';
 import axios from 'axios';
+import './SignupPage.css'
 
 function SignupPage() {
     const [registerSuccess, toggleRegisterSuccess] = useState(false);
@@ -27,7 +28,8 @@ function SignupPage() {
 
     return (
         <>
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <form className='signup-form' onSubmit={handleSubmit(onSubmit)}>
+                <h2>Sign up here</h2>
                 <label htmlFor='email'>
                     Email:
                     <input id='email' type='input' name='email' {...register('email', {

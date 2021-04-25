@@ -1,9 +1,10 @@
 import React from 'react';
 
 function DropdownMenu({selectedValue, onChangeFunction}) {
+
     return (
         <>
-        <label>Choose your location:</label>
+        <label>Choose your location: </label>
     <select id='location' name='location' value={selectedValue} onChange={onChangeFunction}>
         <option value='21'>Argentina</option>
         <option value='23'>Australia</option>

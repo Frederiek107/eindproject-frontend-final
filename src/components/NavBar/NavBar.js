@@ -1,15 +1,18 @@
 import React, {useContext} from 'react';
-import {NavLink, useHistory} from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
+import {NavLink, useHistory, useLocation} from 'react-router-dom';
 import './NavBar.css'
 import Search from '@material-ui/icons/Search'
 import NewReleases from '@material-ui/icons/NewReleases'
 import Stars from '@material-ui/icons/Stars'
 import AccountCircle from '@material-ui/icons/AccountCircle'
 import {UserContext} from '../../context/UserContext';
+import Searchbar from '../Searchbar/Searchbar';
 
-function NavBar() {
+function NavBar({input, setInput, setSearchValue}) {
     const history = useHistory();
     const {logout} = useContext(UserContext);
+    const location = useLocation();
 
     function handleClick() {
         logout();
@@ -32,7 +35,14 @@ function NavBar() {
                     <li>
                         <NavLink to='/toprated' activeClassName='active-link'><Stars id='icon'/>Top rated</NavLink>
                     </li>
-                    <button onClick={handleClick}>Logout</button>
+                    <div>
+                    {location.pathname ==='/home' && <Searchbar
+                        input={input}
+                        setInput={setInput}
+                        setSearchValue={setSearchValue}
+                    />}
+                    </div>
+                    <button id="logout-button" onClick={handleClick}>Log out</button>
                 </ul>
             </nav>
         </header>

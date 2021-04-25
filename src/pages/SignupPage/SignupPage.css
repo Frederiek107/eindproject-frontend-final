@@ -1,0 +1,20 @@
+.signup-form {
+    padding: 20px;
+    height: 400px;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.signup-form label {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.signup-form label input {
+    width: 250px;
+}
+
+.signup-form button {
+    width: 150px;
+}
