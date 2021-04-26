@@ -17,7 +17,9 @@ import UserContextProvider, {UserContext} from './context/UserContext';
 
 function App() {
     const {status} = useContext(UserContext);
+    const jwtToken = localStorage.getItem('token');
     console.log(status);
+    console.log(jwtToken);
 
     return (
 
@@ -34,19 +36,21 @@ function App() {
             <Route exact path='/home'>
                 <Homepage
                     loginStatus={status}
+                    jwtToken={jwtToken}
                 />
             </Route>
 
             <Route path='/new'>
                 <NewContentPage
                     loginStatus={status}
+                    jwtToken={jwtToken}
                 />
             </Route>
 
             <Route path='/toprated'>
                 <TopRatedPage
                     loginStatus={status}
-
+                    jwtToken={jwtToken}
                 />
             </Route>
 
@@ -57,6 +61,7 @@ function App() {
             <Route path='/profile'>
                 <ProfilePage
                     loginStatus={status}
+                    jwtToken={jwtToken}
                 />
             </Route>
 

@@ -1,20 +1,47 @@
 .signup-form {
+    position: absolute;
+    top: 15%;
+    left: 35%;
+    font-weight: bolder;
+    letter-spacing: .5px;
+    background: rgba(255, 255, 255, 0.8);
+    border: rgb(75, 78, 84) 2px solid;
     padding: 20px;
-    height: 400px;
-    flex-direction: column;
-    justify-content: space-evenly;
+    height: 500px;
+    width: 450px;
+    border-radius: 5px;
 }
 
 .signup-form label {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
+    display:flex;
+    flex-direction: column;
+    margin: 30px;
+
 }
 
 .signup-form label input {
-    width: 250px;
+    width: 350px;
+    height:25px;
+    border-radius: 5px;
 }
 
 .signup-form button {
+    font-family: "Segoe UI", sans-serif;
+    padding: 3px;
+    background: #707070;
+    color: white;
+    margin-left: 150px;
+    margin-top: 40px;
     width: 150px;
+    border-radius: 5px;
+}
+
+#signup-title {
+    margin-left: 170px;
+}
+
+#error {
+    height: 0;
+    margin: 0;
+    color: red;
 }

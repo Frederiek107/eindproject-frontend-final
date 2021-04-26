@@ -6,7 +6,7 @@ import {Redirect} from 'react-router-dom';
 import DropdownMenu from '../../components/DropdownMenu/DropdownMenu';
 import {LocationContext} from '../../context/LocationContextProvider';
 
-function ProfilePage({loginStatus}) {
+function ProfilePage({loginStatus, jwtToken}) {
     const {user} = useContext(UserContext);
     const [value, setValue] = useState('');
     const {location, setLocation} = useContext(LocationContext);
@@ -16,7 +16,7 @@ function ProfilePage({loginStatus}) {
 
     return (
         <>
-            {loginStatus === 'done' &&
+            {(loginStatus === 'done' || jwtToken !== null) &&
             <>
                 <NavBar/>
                 <div className='profilepage'>
@@ -40,7 +40,7 @@ function ProfilePage({loginStatus}) {
                 </div>
             </>
             }
-            {loginStatus === 'pending' && <Redirect to='/'/>}
+            {(loginStatus === 'pending' && jwtToken === null) && <Redirect to='/'/>}
         </>
     )
 }

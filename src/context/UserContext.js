@@ -27,6 +27,7 @@ function UserContextProvider({children}) {
         ...userState,
         login: loginFunction,
         logout: logoutFunction,
+        checkAuthentication: checkAuthenticationFunction,
     }
 
     async function fetchUserData(jwtToken) {
@@ -66,9 +67,14 @@ function UserContextProvider({children}) {
         })
     }
 
-    function checkAuthentication() {
-        if (useState.status === 'pending') {
-
+    function checkAuthenticationFunction() {
+        const token= localStorage.getItem('token');
+        console.log(token);
+        if (token || userState.status ==='done') {
+        return true;
+        }
+        else {
+            return false;
         }
     }
 

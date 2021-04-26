@@ -39,7 +39,7 @@ function Loginpage() {
         <div id='page'>
             <div id='login'>
                 <h1>Log in</h1>
-                <form onSubmit={handleSubmit(onSubmit)}>
+                <form id="login-form" onSubmit={handleSubmit(onSubmit)}>
                     <label htmlFor='username'>
                         Username:
                         <input id='username' type='input' name='username' {...register('username')}/>

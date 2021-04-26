@@ -7,7 +7,7 @@ import Sidebar from '../../components/Sidebar/Sidebar';
 import {LocationContext} from '../../context/LocationContextProvider';
 import NavBar from '../../components/NavBar/NavBar';
 
-function Homepage({loginStatus}) {
+function Homepage({loginStatus, jwtToken}) {
     const [query, setQuery] = useState(null);
     const [data, setData] = useState([]);
     const [searchValue, setSearchValue] = useState('');
@@ -45,7 +45,7 @@ function Homepage({loginStatus}) {
 
     return (
         <>
-            {loginStatus === 'done' &&
+            {(loginStatus === 'done' || jwtToken !== null) &&
             <div className = 'homepage'>
                 <NavBar
                     input={input}
@@ -72,7 +72,7 @@ function Homepage({loginStatus}) {
                 </div>
             </div>
             }
-            {loginStatus === 'pending' && <Redirect to='/'/>}
+            {(loginStatus === 'pending' && jwtToken === null) && <Redirect to='/'/>}
         </>
     )
 }

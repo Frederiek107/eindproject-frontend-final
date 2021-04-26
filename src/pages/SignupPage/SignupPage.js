@@ -29,28 +29,28 @@ function SignupPage() {
     return (
         <>
             <form className='signup-form' onSubmit={handleSubmit(onSubmit)}>
-                <h2>Sign up here</h2>
+                <div id='signup-title'><h2>Sign up</h2></div>
                 <label htmlFor='email'>
                     Email:
                     <input id='email' type='input' name='email' {...register('email', {
                         required: true,
                         pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i
                     })}/>
-                        {errors.email && <p>This field is required. Please use a valid email address.</p>}
+                        {errors.email && <p id='error'>This field is required. Use a valid email address.</p>}
                 </label>
                 <label htmlFor='username'>
                     Username:
                     <input id='username' type='input' name='username' {...register('username', {
                         required: true
                     })}/>
-                    {errors.username && <p>This field is required.</p>}
+                    {errors.username && <p id='error'>This field is required.</p>}
                 </label>
                 <label htmlFor='password'>
                     Password:
                     <input id='password' type="input" name='password' {...register('password', {
                         required: true
                     })}/>
-                    {errors.password && <p>This field is required.</p>}
+                    {errors.password && <p id='error'>This field is required.</p>}
                 </label>
                 <button>Submit</button>
                 {registerSuccess === true && <p>You've been registered successfully! You're now being redirected to the Loginpage.</p>}

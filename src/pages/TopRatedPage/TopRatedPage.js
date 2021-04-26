@@ -7,7 +7,7 @@ import {LocationContext} from '../../context/LocationContextProvider';
 import NavBar from '../../components/NavBar/NavBar';
 import {Redirect} from "react-router-dom";
 
-function TopRatedPage({loginStatus}) {
+function TopRatedPage({loginStatus, jwtToken}) {
     const [query, setQuery] = useState([]);
     const [data, setData] = useState([]);
     const {location} = useContext(LocationContext);
@@ -41,7 +41,7 @@ function TopRatedPage({loginStatus}) {
 
     return (
         <>
-            {loginStatus === 'done' &&
+            {(loginStatus === 'done' || jwtToken !== null) &&
             <>
                 <NavBar/>
                 <div className='contentpage'>
@@ -64,7 +64,7 @@ function TopRatedPage({loginStatus}) {
                 </div>
             </>
             }
-            {loginStatus === 'pending' && <Redirect to='/'/>}
+            {(loginStatus === 'pending' && jwtToken === null) && <Redirect to='/'/>}
         </>
     )
 }

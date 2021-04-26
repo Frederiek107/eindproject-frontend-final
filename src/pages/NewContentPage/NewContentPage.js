@@ -7,7 +7,7 @@ import fetchDate from '../../helpers/fetchDate';
 import NavBar from '../../components/NavBar/NavBar';
 import {Redirect} from 'react-router-dom';
 
-function NewContentPage({loginStatus}) {
+function NewContentPage({loginStatus, jwtToken}) {
     const [query, setQuery] = useState([]);
     const [data, setData] = useState([]);
     const {location} = useContext(LocationContext);
@@ -42,7 +42,7 @@ function NewContentPage({loginStatus}) {
 
     return (
         <>
-            {loginStatus === 'done' &&
+            {(loginStatus === 'done' || jwtToken !== null) &&
             <>
                 <NavBar/>
                 <Sidebar
@@ -65,7 +65,7 @@ function NewContentPage({loginStatus}) {
                 </div>
             </>
             }
-            {loginStatus === 'pending' && <Redirect to='/'/>}
+            {(loginStatus === 'pending' && jwtToken === null) && <Redirect to='/'/>}
         </>
     )
 }
