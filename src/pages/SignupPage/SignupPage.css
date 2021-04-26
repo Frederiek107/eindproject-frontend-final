@@ -1,9 +1,11 @@
 .signup-form {
     position: absolute;
-    top: 15%;
-    left: 35%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
     font-weight: bolder;
-    letter-spacing: .5px;
+    letter-spacing: 1px;
+    color: rgb(50,55,64);
     background: rgba(255, 255, 255, 0.8);
     border: rgb(75, 78, 84) 2px solid;
     padding: 20px;
@@ -16,7 +18,6 @@
     display:flex;
     flex-direction: column;
     margin: 30px;
-
 }
 
 .signup-form label input {
@@ -26,21 +27,30 @@
 }
 
 .signup-form button {
+    cursor: pointer;
     font-family: "Segoe UI", sans-serif;
-    padding: 3px;
-    background: #707070;
-    color: white;
+    font-size: 16px;
+    text-align: center;
     margin-left: 150px;
-    margin-top: 40px;
+    margin-top: 30px;
     width: 150px;
-    border-radius: 5px;
+    font-weight: bold;
+    color: rgb(50,55,64);
+    border-radius: 25px;
+}
+
+.signup-form button:hover {
+    color: white;
+    background: rgb(50,55,64);;
 }
 
 #signup-title {
-    margin-left: 170px;
+    color: rgb(50,55,64);
+    text-align: center;
 }
 
 #error {
+    font-size: 14px;
     height: 0;
     margin: 0;
     color: red;

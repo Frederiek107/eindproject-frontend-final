@@ -6,21 +6,23 @@ import './SignupPage.css'
 
 function SignupPage() {
     const [registerSuccess, toggleRegisterSuccess] = useState(false);
-    const {register, handleSubmit, formState: { errors }} = useForm();
+    const {register, handleSubmit, formState: {errors}} = useForm();
     const history = useHistory();
 
     async function onSubmit(data) {
         try {
             const response = await axios.post('https://polar-lake-14365.herokuapp.com/api/auth/signup', {
                 username: data.username,
-                email : data.email,
-                password : data.password,
+                email: data.email,
+                password: data.password,
                 role: ['user']
-        });
+            });
             console.log(data);
             console.log(response);
             response && toggleRegisterSuccess(true);
-            setTimeout(()=>{history.push('/')}, 3000);
+            setTimeout(() => {
+                history.push('/')
+            }, 3000);
         } catch (e) {
             console.error(e);
         }
@@ -29,14 +31,14 @@ function SignupPage() {
     return (
         <>
             <form className='signup-form' onSubmit={handleSubmit(onSubmit)}>
-                <div id='signup-title'><h2>Sign up</h2></div>
+                <div id='signup-title'><h1>Sign up</h1></div>
                 <label htmlFor='email'>
                     Email:
                     <input id='email' type='input' name='email' {...register('email', {
                         required: true,
                         pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i
                     })}/>
-                        {errors.email && <p id='error'>This field is required. Use a valid email address.</p>}
+                    {errors.email && <p id='error'>This field is required. Use a valid email address.</p>}
                 </label>
                 <label htmlFor='username'>
                     Username:
@@ -53,7 +55,8 @@ function SignupPage() {
                     {errors.password && <p id='error'>This field is required.</p>}
                 </label>
                 <button>Submit</button>
-                {registerSuccess === true && <p>You've been registered successfully! You're now being redirected to the Loginpage.</p>}
+                {registerSuccess === true &&
+                <p>You've been registered successfully! You're now being redirected to the Loginpage.</p>}
             </form>
         </>
     )
