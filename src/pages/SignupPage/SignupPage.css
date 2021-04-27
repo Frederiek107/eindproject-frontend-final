@@ -9,7 +9,7 @@
     background: rgba(255, 255, 255, 0.8);
     border: rgb(75, 78, 84) 2px solid;
     padding: 20px;
-    height: 500px;
+    height: 550px;
     width: 450px;
     border-radius: 5px;
 }
@@ -54,4 +54,8 @@
     height: 0;
     margin: 0;
     color: red;
+}
+
+#email {
+    margin: 10px;
 }

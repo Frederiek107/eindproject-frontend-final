@@ -12,26 +12,6 @@
     padding: 20px;
 }
 
-.login-form label {
-    margin: 10px;
-}
-
-.login-form label input {
-    margin: auto;
-    width: 250px;
-    border-radius: 5px;
-}
-
-#retrieve-password {
-    align-self: flex-end;
-    text-decoration: underline;
-    font-weight: bold;
-}
-
-#password, #username, #email {
-    margin: 10px;
-}
-
 .login-container {
     color: rgb(50,55,64);
     background: rgba(255, 255, 255, 0.75);
@@ -44,22 +24,6 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-}
-
-#login-button {
-    cursor: pointer;
-    font-family: "Segoe UI", sans-serif;
-    font-size: 16px;
-    font-weight: bold;
-    color: rgb(50,55,64);
-    border-radius: 25px;
-    margin: 40px auto auto;
-    width: 100px;
-}
-
-#login-button:hover {
-    color: white;
-    background: rgb(50,55,64);
 }
 
 #signup {
@@ -80,8 +44,5 @@
 #login-error {
     font-size: 14px;
     height: 10px;
-    margin: 0;
-    padding: 0;
-    display: inline-block;
     color: red;
 }

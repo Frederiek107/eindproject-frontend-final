@@ -1,0 +1,35 @@
+.login-form label {
+    margin: 10px;
+}
+
+.login-form label input {
+    margin: auto;
+    width: 250px;
+    border-radius: 5px;
+}
+
+#password, #username {
+    margin: 10px;
+}
+
+#login-button {
+    cursor: pointer;
+    font-family: "Segoe UI", sans-serif;
+    font-size: 16px;
+    padding: 2px;
+    font-weight: bold;
+    color: rgb(50,55,64);
+    border-radius: 25px;
+    margin: 0 auto 10px;
+    width: 100px;
+}
+
+#login-button:hover {
+    color: white;
+    background: rgb(50,55,64);
+}
+
+#login-button:disabled {
+    color: grey;
+    cursor: not-allowed;
+}

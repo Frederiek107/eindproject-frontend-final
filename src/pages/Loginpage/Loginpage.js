@@ -5,9 +5,8 @@ import {LocationContext} from '../../context/LocationContextProvider';
 import {NavLink} from 'react-router-dom';
 import axios from 'axios';
 import {UserContext} from '../../context/UserContext';
-import DropdownMenu from '../../components/DropdownMenu/DropdownMenu';
+import InlogForm from "../../components/InlogForm/InlogForm";
 
-//nog toevoegen: maak button onklikbaar als gegevens nog niet zijn ingevuld (ook voor sign up page)
 
 function Loginpage() {
     const {login} = useContext(UserContext);
@@ -16,6 +15,10 @@ function Loginpage() {
     const {location, setLocation} = useContext(LocationContext);
     const [loginSuccess, toggleLoginSuccess] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
+    const [inputState, setInputState] = useState({
+        username: '',
+        password: '',
+    });
 
     async function onSubmit(data) {
         try {
@@ -25,6 +28,7 @@ function Loginpage() {
             console.log(data);
             login(jwtToken);
             toggleLoginSuccess(true);
+            setErrorMessage('');
         } catch (e) {
             console.error(e);
             setErrorMessage("We couldn't find the username and password you entered. Please try again!");
@@ -38,27 +42,32 @@ function Loginpage() {
         console.log(`INGESTELDE LOCATIE: ${location}`);
     }
 
+    function handleFormChange(e) {
+        setInputState({
+            ...inputState,
+            [e.target.name]:e.target.value
+        });
+    }
+
     return (
 
         <div id='page'>
             <div className='login-container'>
                 <h1 id='login-title'>Log in</h1>
                 <form className='login-form' onSubmit={handleSubmit(onSubmit)}>
-                    <label htmlFor='username'>
-                        Username:
-                        <input id='username' type='input' name='username' {...register('username')}/>
-                    </label>
-                    <label htmlFor='password'>
-                        Password:
-                        <input id='password' type='input' name='password' {...register('password')}/>
-                    </label>
-                    <DropdownMenu
-                    selectedValue={value}
-                    onChangeFunction={(e)=>{setValue(e.currentTarget.value)}}
-                    />
+                <InlogForm
+                    registerUsername={{...register('username')}}
+                    registerPassword={{...register('password')}}
+                    valueUsername={inputState.username}
+                    valuePassword={inputState.password}
+                    onChangeFunction={handleFormChange}
+                    menuValue={value}
+                    changeLocation={(e)=>{setValue(e.currentTarget.value)}}
+                    disableCondition={inputState.username ==='' || inputState.password === ''}
+                    onClick={postLocation}
+                />
                     {loginSuccess === true && <p>Welcome! You're being redirected to the profile page.</p>}
                     {errorMessage !== '' && <p id='login-error'>{errorMessage}</p>}
-                    <button id='login-button' onClick={postLocation}>Submit</button>
                 </form>
             </div>
             <div id='signup'>
