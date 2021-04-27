@@ -9,11 +9,6 @@ function DetailsPage() {
     const netflixID = location.state.netflixID;
     const imdbID = location.state.imdbID;
     const vtype = location.state.vtype;
-    const [movieID, setMovieID] = useState('');
-    const [seriesID, setSeriesID] = useState('');
-    const [trailer, setTrailer] = useState('');
-    const [responseUNOGS, setResponseUNOGS] = useState(null);
-    const [responseIMDB, setResponseIMDB] = useState(null);
 
     async function fetchDetailsUnogs() {
         console.log("HOE VAAK WORDT UNOGS AANGEROEPEN?")
@@ -28,7 +23,9 @@ function DetailsPage() {
                         netflixid: netflixID
                     }
                 });
+/*
             response && setResponseUNOGS(response);
+*/
             console.log(response);
         } catch (e) {
             console.error(e);
@@ -41,25 +38,9 @@ function DetailsPage() {
         }
     }, [])
 
-
-    async function fetchIMDBDetails() {
-        try {
-            const response = await axios.get(`https://api.themoviedb.org/3/movie/157336?api_key=${process.env.REACT_APP_API_KEY2}&append_to_response=videos`);
-            console.log(response);
-        } catch (e) {
-            console.error(e);
-        }
-    }
-    useEffect(() => {
-        if (imdbID !== null && imdbID !== 'notfound') {
-            fetchIMDBDetails()
-        }
-    }, []);
-
-
     return (
         <>
-            {responseUNOGS !== null &&
+            {/*{responseUNOGS !== null &&
             responseUNOGS.data.results.map((result) => {
                 return (
                     <div className='details-page'>
@@ -73,27 +54,8 @@ function DetailsPage() {
                 <div>{result.synopsis}</div>
                 </span>
                     </div>
-                )
+                )*/}
             })}
-            {/*{responseUNOGS === null &&
-                responseIMDB.map((result)=>{
-                return <>
-                    <div>{result.title}</div>
-                    <div>{result.year}</div>
-                    <div>{result.length}</div>
-                    <div>{result.rating}</div>
-                    <span id="media">
-                <ReactPlayer
-                    url={result.trailer.link}
-                    width={550}
-                    height={400}
-                    controls
-                    light={true}
-                />
-                </span>
-                    <div>{result.plot}</div>
-                    </>
-                })}*/}
         </>
     );
 }

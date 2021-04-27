@@ -3,12 +3,12 @@ import {useForm} from 'react-hook-form';
 import {useHistory} from 'react-router-dom';
 import axios from 'axios';
 import './SignupPage.css'
-import SignupForm from "../../components/SignupForm/SignupForm";
 
 function SignupPage() {
     const [registerSuccess, toggleRegisterSuccess] = useState(false);
-    const {register, handleSubmit, formState: {errors}} = useForm();
+    const {register, handleSubmit, formState: {errors}, useFormContext} = useForm();
     const history = useHistory();
+    const methods = useFormContext;
 
     async function onSubmit(data) {
         try {
@@ -31,11 +31,7 @@ function SignupPage() {
 
     return (
         <>
-            <SignupForm
-                onSubmitFunction={handleSubmit(onSubmit)}
-                condition={registerSuccess}
-            />
-           {/* <form className='signup-form' onSubmit={handleSubmit(onSubmit)}>
+            <form className='signup-form' onSubmit={handleSubmit(onSubmit)}>
                 <div id='signup-title'><h1>Sign up</h1></div>
                 <label htmlFor='email'>
                     Email:
@@ -62,7 +58,7 @@ function SignupPage() {
                 <button>Submit</button>
                 {registerSuccess === true &&
                 <p>You've been registered successfully! You're now being redirected to the Loginpage.</p>}
-            </form>*/}
+            </form>
         </>
     )
 }

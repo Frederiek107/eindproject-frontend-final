@@ -12,7 +12,7 @@ function InlogForm({registerUsername, registerPassword, valueUsername, valuePass
                        onChange={onChangeFunction}/>
             </label>
             <label htmlFor='password'>
-                Password:
+                Password: 
                 <input {...registerPassword} id='password' value={valuePassword} type='password' name='password'
                        onChange={onChangeFunction}/>
             </label>

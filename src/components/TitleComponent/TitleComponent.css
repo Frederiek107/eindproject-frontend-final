@@ -27,11 +27,35 @@
     margin: 10px;
     display: flex;
     flex-direction: column;
+    cursor: pointer;
+}
+
+.title-component:hover #title {
+    font-weight: bold;
 }
 
 #image {
-    max-width: 190px;
-    max-height: 250px;
+    width: 180px;
+    height: 250px;
+}
+
+#title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 45px;
+    font-size: 15px;
+    line-height: 20px;
+}
+
+#imdb {
+    margin: 3px;
+    align-self: flex-end;
+    font-size: 14px;
+}
+
+#star {
+    color: gold;
 }
 
 
