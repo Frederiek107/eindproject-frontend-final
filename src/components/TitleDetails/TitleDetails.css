@@ -1,0 +1,61 @@
+.popup-box {
+    position: fixed;
+    bottom: 4%;
+    left: 25%;
+}
+
+.title-details {
+    display: flex;
+    border-radius: 15px;
+    padding: 20px;
+    color: white;
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid white;
+    background: rgba(140, 135, 135, 0.9);
+    border-radius: 15px;
+    width: 70%;
+    height: 50%;
+}
+
+#details-title {
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    padding: 20px;
+}
+
+#title-info {
+    border: 2px solid white;
+    border-radius: 15px;
+    padding: 10px;
+    margin: 20px;
+    height: 200px;
+}
+
+#details-image {
+    max-width: 300px;
+    max-height: 400px;
+    border-radius: 15px;
+}
+
+#description {
+    margin-left: 20px;
+    color: white;
+    height: 100px;
+}
+
+.close-icon {
+    justify-self: flex-end;
+    cursor: pointer;
+    background: black;
+    color: white;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 14px;
+}
