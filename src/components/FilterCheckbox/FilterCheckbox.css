@@ -1,15 +1,14 @@
 .filter-wrapper {
+    background: rgb(25, 20, 26);
     border: 2px solid white;
     border-radius: 15px;
     padding: 10px;
     width: 140px;
-    height: 150px;
+    height: 180px;
     display: flex;
     flex-direction: column;
     color: white;
-    position: absolute;
-    top: 20%;
-    left: 1%;
+    margin: 200px auto auto;
 }
 
 #filter-options {
@@ -19,7 +18,15 @@
 }
 
 #filter-button {
+    font-family: "Segoe UI", sans-serif;
     margin: 15px 3px 3px 20px;
     width: 100px;
     cursor: pointer;
+    border-radius: 25px;
+    font-size: 14px;
+}
+
+#filter-button:hover {
+    color: white;
+    background: rgb(50,55,64);
 }

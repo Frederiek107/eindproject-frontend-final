@@ -25,7 +25,7 @@ function ProfilePage({loginStatus, jwtToken}) {
 
     return (
         <>
-            {(loginStatus === 'done' || jwtToken !== null) &&
+            {((loginStatus === 'done' || jwtToken !== null) && location !==null ) &&
             <>
                 <NavBar/>
                 <div className='profilepage'>
@@ -41,7 +41,7 @@ function ProfilePage({loginStatus, jwtToken}) {
                                 setValue(e.currentTarget.value)
                             }}
                         />
-                        <button onClick={() => {
+                        <button id='profile-button' onClick={() => {
                             setLocation(value)
                         }}>Submit
                         </button>
@@ -51,6 +51,7 @@ function ProfilePage({loginStatus, jwtToken}) {
             }
             {(loginStatus === 'pending' && jwtToken === null) && <Redirect to='/'/>}
         </>
+
     )
 }
 

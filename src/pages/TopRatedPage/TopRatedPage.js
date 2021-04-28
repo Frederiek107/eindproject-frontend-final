@@ -52,6 +52,7 @@ function TopRatedPage({loginStatus, jwtToken}) {
                     <div className='component-wrapper'>
                         {query && query.map((result) => {
                             return <TitleComponent
+                                key={result.nfid}
                                 netflixID={result.nfid}
                                 imdbID={result.imdbid}
                                 title={result.title}

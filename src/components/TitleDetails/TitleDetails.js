@@ -38,7 +38,7 @@ function TitleDetails({netflixID, closePopup}) {
                 <div className='details'>
                     <span id='details-title'>
                         <h1>{removeTitleFaults(result.title)}</h1>
-                    <p className={'close-icon'} onClick={closePopup}>X</p>
+                    <p className={'close-icon'} onClick={closePopup}>x</p>
                         </span>
 
                 <span className='title-details'>

@@ -11,21 +11,21 @@ function Sidebar({data, setQuery}) {
         toggleCheckedSeries(false);
     }
 
-    function handleClickSeries () {
+    function handleClickSeries() {
         toggleCheckedMovie(false);
         toggleCheckedSeries(true);
     }
 
     function filterSearchData() {
         setQuery(null);
-        if (checkedMovie === true) {
+        if (checkedMovie === true && checkedSeries === false) {
             const filteredData = data.filter((result) => {
                 return result.vtype === 'movie';
             })
             console.log(filteredData);
             setQuery(filteredData);
         }
-        else if (checkedSeries === true) {
+        if (checkedSeries === true && checkedMovie === false) {
             const filteredData = data.filter((result) => {
                 return result.vtype === 'series';
             })

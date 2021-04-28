@@ -1,5 +1,4 @@
 import React, {useContext} from 'react';
-import { withRouter } from 'react-router-dom';
 import {NavLink, useHistory, useLocation} from 'react-router-dom';
 import './NavBar.css'
 import Search from '@material-ui/icons/Search'
@@ -42,8 +41,8 @@ function NavBar({input, setInput, setSearchValue}) {
                         setSearchValue={setSearchValue}
                     />}
                     </div>
-                    <button id="logout-button" onClick={handleClick}>Log out</button>
                 </ul>
+                <button id='logout-button' onClick={handleClick}>Log out</button>
             </nav>
         </header>
     )

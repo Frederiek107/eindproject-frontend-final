@@ -1,5 +1,5 @@
 .profilepage {
-    background: rgba(25, 20, 26, 0.95);
+    background: rgba(255, 255, 255, 0.3);
     color: white;
     position: absolute;
     left: 22%;
@@ -18,8 +18,16 @@
 }
 
 .profile-content {
+    background: rgba(25, 20, 26, 0.95);
     padding: 20px;
     margin: 50px 20px 20px;
     border: rgb(50,55,64) 2px solid;
     border-radius: 15px;
+}
+
+#profile-button {
+    cursor: pointer;
+    margin: 10px;
+    border-radius: 25px;
+    width: 80px;
 }
