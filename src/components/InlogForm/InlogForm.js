@@ -1,6 +1,6 @@
 import React from 'react';
 import DropdownMenu from '../DropdownMenu/DropdownMenu';
-import './Inlogform.css'
+import './InlogForm.css'
 
 function InlogForm({registerUsername, registerPassword, valueUsername, valuePassword, onChangeFunction, menuValue, changeLocation, disableCondition, onClick}) {
 
@@ -12,7 +12,7 @@ function InlogForm({registerUsername, registerPassword, valueUsername, valuePass
                        onChange={onChangeFunction}/>
             </label>
             <label htmlFor='password'>
-                Password: 
+                Password:
                 <input {...registerPassword} id='password' value={valuePassword} type='password' name='password'
                        onChange={onChangeFunction}/>
             </label>
@@ -20,7 +20,7 @@ function InlogForm({registerUsername, registerPassword, valueUsername, valuePass
                 selectedValue={menuValue}
                 onChangeFunction={changeLocation}
             />
-            <button disabled={disableCondition} id='login-button' onClick={onClick}>Submit</button>
+            <button disabled={disableCondition} id='login-button' onClick={onClick}>Log in</button>
         </>
     )
 }

@@ -23,7 +23,8 @@
 .signup-form label input {
     width: 350px;
     height:25px;
-    border-radius: 5px;
+    border-radius: 15px;
+    padding: 2px;
 }
 
 .signup-form button {
@@ -50,7 +51,7 @@
 }
 
 #error {
-    font-size: 14px;
+    font-size: 12px;
     height: 0;
     margin: 0;
     color: red;
@@ -58,4 +59,8 @@
 
 #email {
     margin: 10px;
+}
+
+#signin-message {
+    font-size: 12px;
 }

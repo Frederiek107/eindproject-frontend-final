@@ -4,8 +4,9 @@
 
 .login-form label input {
     margin: auto;
-    width: 250px;
-    border-radius: 5px;
+    width: 300px;
+    height:25px;
+    border-radius: 15px;
 }
 
 #password, #username {

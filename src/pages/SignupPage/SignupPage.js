@@ -55,9 +55,9 @@ function SignupPage() {
                     })}/>
                     {errors.password && <p id='error'>This field is required.</p>}
                 </label>
-                <button>Submit</button>
+                <button>Sign up</button>
                 {registerSuccess === true &&
-                <p>You've been registered successfully! You're now being redirected to the Loginpage.</p>}
+                <p id='signin-message'>You've been registered successfully! You're now being redirected to the Loginpage.</p>}
             </form>
         </>
     )

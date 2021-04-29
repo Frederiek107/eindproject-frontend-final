@@ -25,7 +25,7 @@ function ProfilePage({loginStatus, jwtToken}) {
 
     return (
         <>
-            {((loginStatus === 'done' || jwtToken !== null) && location !==null ) &&
+            {((loginStatus === 'done' || jwtToken !== null) && location !==null && country !== null ) &&
             <>
                 <NavBar/>
                 <div className='profilepage'>

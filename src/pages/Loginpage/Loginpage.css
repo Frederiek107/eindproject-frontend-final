@@ -8,13 +8,13 @@
     margin: auto;
     background: rgba(255, 255, 255, 0.8);
     border: rgb(75, 78, 84) 2px solid;
-    border-radius: 10px;
+    border-radius: 25px;
     padding: 20px;
 }
 
 .login-container {
     color: rgb(50,55,64);
-    background: rgba(255, 255, 255, 0.75);
+    background: rgba(255, 255, 255, 0.65);
     border: rgb(50,55,64) 2px solid;
     border-radius: 10px;
     padding: 30px;
@@ -38,11 +38,16 @@
 
 #login-title {
     color: rgb(50,55,64);
+    font-size: 34px;
     text-align: center;
 }
 
 #login-error {
-    font-size: 14px;
+    font-size: 12px;
     height: 10px;
     color: red;
+}
+
+#inlogmessage {
+    font-size: 12px;
 }

@@ -66,7 +66,7 @@ function Loginpage() {
                     disableCondition={inputState.username ==='' || inputState.password === ''}
                     onClick={postLocation}
                 />
-                    {loginSuccess === true && <p>Welcome! You're being redirected to the profile page.</p>}
+                    {loginSuccess === true && <p  id='inlogmessage'>Welcome! You're being redirected to the profile page.</p>}
                     {errorMessage !== '' && <p id='login-error'>{errorMessage}</p>}
                 </form>
             </div>
