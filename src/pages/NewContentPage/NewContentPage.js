@@ -8,13 +8,14 @@ import NavBar from '../../components/NavBar/NavBar';
 import {Redirect} from 'react-router-dom';
 
 function NewContentPage({loginStatus, jwtToken}) {
+    const [error, toggleError] = useState(false);
+    const [errormessage, setErrormessage] = useState('')
     const [query, setQuery] = useState([]);
     const [data, setData] = useState([]);
     const {location} = useContext(LocationContext);
 
     async function fetchNewContent() {
-        console.log(location);
-        console.log(fetchDate());
+        toggleError(false);
         try {
             const response = await axios.get('https://unogsng.p.rapidapi.com/search',
                 {
@@ -27,11 +28,11 @@ function NewContentPage({loginStatus, jwtToken}) {
                         countrylist: location,
                     }
                 });
-            console.log(response);
-            console.log(location);
             response && setQuery(response.data.results);
             setData(response.data.results);
         } catch (e) {
+            toggleError(true);
+            setErrormessage("We couldn't connect you to the server. Please check your internet connection and try again.");
             console.error(e);
         }
     }
@@ -49,8 +50,8 @@ function NewContentPage({loginStatus, jwtToken}) {
                     data={data}
                     setQuery={setQuery}
                 />
-                <div className='contentpage'>
-                    <div className='component-wrapper'>
+                <main className='contentpage'>
+                    <section className='component-wrapper'>
                         {query && query.map((result) => {
                             return <TitleComponent
                                 key={result.nfid}
@@ -62,8 +63,9 @@ function NewContentPage({loginStatus, jwtToken}) {
                                 vtype={result.vtype}
                             />
                         })}
-                    </div>
-                </div>
+                        {error && <p>{errormessage}</p>}
+                    </section>
+                </main>
             </>
             }
             {(loginStatus === 'pending' && jwtToken === null) && <Redirect to='/'/>}

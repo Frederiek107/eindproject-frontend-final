@@ -9,10 +9,6 @@
     border-radius: 15px;
 }
 
-#password, #username {
-    margin: 10px;
-}
-
 #login-button {
     cursor: pointer;
     font-family: "Segoe UI", sans-serif;

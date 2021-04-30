@@ -1,0 +1,25 @@
+::placeholder {
+    font-size: medium;
+}
+
+input:focus {
+    outline: none;
+}
+
+#search-message {
+    position: absolute;
+    left: 45%;
+    top: 45%;
+    color: white;
+    font-size: 36px;
+}
+
+#search-notfound {
+    color: white;
+    margin: 30px;
+    font-size: 20px;
+}
+
+#message-display {
+    display: none;
+}

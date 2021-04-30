@@ -3,7 +3,7 @@
     flex-direction: column;
     font-weight: bolder;
     letter-spacing: 1px;
-    height: 350px;
+    height: 370px;
     width: 400px;
     margin: auto;
     background: rgba(255, 255, 255, 0.8);
@@ -19,7 +19,7 @@
     border-radius: 10px;
     padding: 30px;
     width: 450px;
-    height: 500px;
+    height: 520px;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -44,10 +44,10 @@
 
 #login-error {
     font-size: 12px;
-    height: 10px;
     color: red;
+    margin-top: 0;
 }
 
 #inlogmessage {
-    font-size: 12px;
+    font-size: 13px;
 }

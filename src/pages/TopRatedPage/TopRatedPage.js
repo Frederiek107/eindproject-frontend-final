@@ -1,18 +1,20 @@
 import React, {useContext, useEffect, useState} from 'react';
 import axios from 'axios';
 import TitleComponent from '../../components/TitleComponent/TitleComponent';
-import './TopRatedPage.css'
 import Sidebar from '../../components/Sidebar/Sidebar';
 import {LocationContext} from '../../context/LocationContextProvider';
 import NavBar from '../../components/NavBar/NavBar';
 import {Redirect} from "react-router-dom";
 
 function TopRatedPage({loginStatus, jwtToken}) {
+    const [error, toggleError] = useState(false);
+    const [errormessage, setErrormessage] = useState('')
     const [query, setQuery] = useState([]);
     const [data, setData] = useState([]);
     const {location} = useContext(LocationContext);
 
     async function fetchTopRated() {
+        toggleError(false);
         try {
             const response = await axios.get('https://unogsng.p.rapidapi.com/search',
                 {
@@ -26,11 +28,11 @@ function TopRatedPage({loginStatus, jwtToken}) {
                         countrylist: location,
                     }
                 });
-            console.log(response);
-            console.log(location);
             response && setQuery(response.data.results);
             setData(response.data.results);
         } catch (e) {
+            toggleError(true);
+            setErrormessage("We couldn't connect you to the server. Please check your internet connection and try again.");
             console.error(e);
         }
     }
@@ -44,12 +46,12 @@ function TopRatedPage({loginStatus, jwtToken}) {
             {(loginStatus === 'done' || jwtToken !== null) &&
             <>
                 <NavBar/>
-                <div className='contentpage'>
+                <main className='contentpage'>
                     <Sidebar
                         data={data}
                         setQuery={setQuery}
                     />
-                    <div className='component-wrapper'>
+                    <section className='component-wrapper'>
                         {query && query.map((result) => {
                             return <TitleComponent
                                 key={result.nfid}
@@ -61,8 +63,9 @@ function TopRatedPage({loginStatus, jwtToken}) {
                                 vtype={result.vtype}
                             />
                         })}
-                    </div>
-                </div>
+                        {error && <p>{errormessage}</p>}
+                    </section>
+                </main>
             </>
             }
             {(loginStatus === 'pending' && jwtToken === null) && <Redirect to='/'/>}

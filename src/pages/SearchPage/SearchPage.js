@@ -1,13 +1,16 @@
 import React, {useState, useEffect, useContext} from 'react';
 import {Redirect} from 'react-router-dom';
-import './Homepage.css'
+import './SearchPage.css'
 import axios from 'axios';
 import TitleComponent from '../../components/TitleComponent/TitleComponent';
 import Sidebar from '../../components/Sidebar/Sidebar';
 import {LocationContext} from '../../context/LocationContextProvider';
 import NavBar from '../../components/NavBar/NavBar';
 
-function Homepage({loginStatus, jwtToken}) {
+function SearchPage({loginStatus, jwtToken}) {
+    const [initialState, toggleInitialState] = useState(true);
+    const [error, toggleError] = useState(false);
+    const [errormessage, setErrormessage] = useState('');
     const [query, setQuery] = useState(null);
     const [data, setData] = useState([]);
     const [searchValue, setSearchValue] = useState('');
@@ -15,7 +18,9 @@ function Homepage({loginStatus, jwtToken}) {
     const [input, setInput] = useState('');
 
     async function fetchData() {
+        toggleInitialState(false);
         setQuery(null);
+        toggleError(false);
         try {
             const response = await axios.get('https://unogsng.p.rapidapi.com/search',
                 {
@@ -30,35 +35,36 @@ function Homepage({loginStatus, jwtToken}) {
                     }
                 });
             console.log(response);
-            console.log(location);
             response && setQuery(response.data.results);
             setData(response.data.results);
         } catch (e) {
             console.error(e);
+            toggleError(true);
+            setErrormessage("We couldn't connect you to the server. Please check your internet connection and try again.")
         }
         setInput('');
     }
 
     useEffect(() => {
-        if (searchValue) fetchData()
-    }, [searchValue])
+        if (searchValue) fetchData();
+    }, [searchValue]);
 
     return (
         <>
             {(loginStatus === 'done' || jwtToken !== null) &&
-            <div className = 'homepage'>
+            <main className='homepage'>
                 <NavBar
                     input={input}
                     setInput={setInput}
                     setSearchValue={setSearchValue}
                 />
-                <div className='contentpage'>
+                <section className='contentpage'>
                     <Sidebar
                         data={data}
                         setQuery={setQuery}
                     />
-                    <div className='component-wrapper'>
-                        {query!==null ? query.map((result) => {
+                    <section className='component-wrapper'>
+                        {(query!==null && query !==undefined) && query.map((result) => {
                             return <TitleComponent
                                 key={result.nfid}
                                 netflixID={result.nfid}
@@ -68,14 +74,17 @@ function Homepage({loginStatus, jwtToken}) {
                                 imdbRating={result.imdbrating}
                                 vtype={result.vtype}
                             />
-                        }) : <div id='message'>Start searching!</div> }
-                    </div>
-                </div>
-            </div>
+                        })}
+                        {initialState && <p id='search-message'>Start searching!</p>}}
+                        {query !== null && query=== undefined && <p id='search-notfound'>Hmm..we couldn't find anything. Please try searching again!</p>}
+                        {error && <p>{errormessage}</p>}
+                    </section>
+                </section>
+            </main>
             }
             {(loginStatus === 'pending' && jwtToken === null) && <Redirect to='/'/>}
         </>
     )
 }
 
-export default Homepage;
+export default SearchPage;

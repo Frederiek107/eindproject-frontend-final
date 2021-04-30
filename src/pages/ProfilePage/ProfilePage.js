@@ -25,12 +25,12 @@ function ProfilePage({loginStatus, jwtToken}) {
 
     return (
         <>
-            {((loginStatus === 'done' || jwtToken !== null) && location !==null && country !== null ) &&
+            {((loginStatus === 'done' || jwtToken !== null) && location && country) &&
             <>
                 <NavBar/>
-                <div className='profilepage'>
-                    <div className='profile-title'><h2>Profile</h2></div>
-                    <div className='profile-content'>
+                <main className='profilepage'>
+                    <section className='profile-title'><h2>Profile</h2></section>
+                    <section className='profile-content'>
                         <p><b>Username:</b> {user && user.username}</p>
                         <p><b>Email:</b> {user && user.email}</p>
                         <p><b>Selected location: </b>{country.name}</p>
@@ -41,12 +41,12 @@ function ProfilePage({loginStatus, jwtToken}) {
                                 setValue(e.currentTarget.value)
                             }}
                         />
-                        <button id='profile-button' onClick={() => {
+                        <button id='profile-button' onClick={()=> {
                             setLocation(value)
                         }}>Submit
                         </button>
-                    </div>
-                </div>
+                    </section>
+                </main>
             </>
             }
             {(loginStatus === 'pending' && jwtToken === null) && <Redirect to='/'/>}

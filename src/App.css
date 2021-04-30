@@ -3,8 +3,45 @@ body {
     overflow-x: hidden;
     background-image: url("assets/photo-1598931587008-88cc8a5e3a40.jpg");
     margin: 0;
+    overscroll-behavior-x: contain;
 }
 
 .contentpage {
     height: 100%;
+    display: grid;
+    grid-template-columns: 200px auto;
+    grid-template-areas: "sidebar component-wrapper";
+}
+
+.loader {
+    margin: 10px;
+    width: 30px;
+    height: 30px;
+    animation: spinner 2s linear infinite;
+}
+
+@keyframes spinner {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+::-webkit-scrollbar {
+    width: 0;
+}
+
+.component-wrapper {
+    display: grid;
+    grid-template-rows: max-content max-content;
+    grid-auto-flow: column;
+    overflow-x: scroll;
+    grid-area: component-wrapper;
+}
+
+.component-wrapper:after {
+    content: '';
+    width: 10px;
 }

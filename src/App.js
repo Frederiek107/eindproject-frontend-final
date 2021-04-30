@@ -2,7 +2,7 @@ import React, {useContext} from 'react';
 import './App.css';
 import Loginpage from '../src/pages/Loginpage/Loginpage'
 import {Switch, Route} from 'react-router-dom';
-import Homepage from '../src/pages/Homepage/Homepage'
+import SearchPage from './pages/SearchPage/SearchPage'
 import NewContentPage from '../src/pages/NewContentPage/NewContentPage'
 import TitleDetails from './components/TitleDetails/TitleDetails'
 import TopRatedPage from './pages/TopRatedPage/TopRatedPage';
@@ -34,7 +34,7 @@ function App() {
             </Route>
 
             <Route exact path='/home'>
-                <Homepage
+                <SearchPage
                     loginStatus={status}
                     jwtToken={jwtToken}
                 />
