@@ -61,6 +61,7 @@ function SearchPage({loginStatus, jwtToken}) {
                 <section className='contentpage'>
                     <Sidebar
                         data={data}
+                        query={query}
                         setQuery={setQuery}
                     />
                     <section className='component-wrapper'>

@@ -3,7 +3,7 @@ import './FilterCheckbox.css';
 import {FaFilter} from 'react-icons/fa';
 import {ImCross} from 'react-icons/im';
 
-function FilterCheckbox({data, setQuery}) {
+function FilterCheckbox({data, setQuery, query}) {
     const [checkedMovie, toggleCheckedMovie] = useState(false);
     const [checkedSeries, toggleCheckedSeries] = useState(false);
     const [filter, setFilter] = useState('');
@@ -46,14 +46,14 @@ function FilterCheckbox({data, setQuery}) {
             <label htmlFor='checkbox' className='filter-wrapper'>
                 Filter by:
                 <span id='filter-options'>
-                        <input type='radio' id='filter' name='filter' onClick={handleClickMovie}/>
-                        Movies
+                        <input type='radio' id='filter-movie' name='filter' onClick={handleClickMovie}/>
+                    <label htmlFor='filter-movie'>Movies</label>
                     </span>
                 <span id='filter-options'>
-                        <input type='radio' id='filter' name='filter' onClick={handleClickSeries}/>
-                        Series
+                        <input type='radio' id='filter-series' name='filter' onClick={handleClickSeries}/>
+                      <label htmlFor='filter-series'>Series</label>
                     </span>
-                <button id='filter-button' onClick={filterSearchData}>Filter</button>
+                <button id='filter-button' onClick={filterSearchData} disabled ={(checkedSeries===false && checkedMovie===false) || query===null}>Filter</button>
             </label>
             {filter !== '' &&
             <section id={'filter-info'}>

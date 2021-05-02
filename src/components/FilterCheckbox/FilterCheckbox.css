@@ -14,8 +14,16 @@
 #filter-options {
     margin: 10px 5px 5px;
     display: flex;
+}
+
+#filter-options label {
     cursor: pointer;
 }
+
+#filter-options input {
+    cursor: pointer;
+}
+
 
 #filter-button {
     font-family: "Segoe UI", sans-serif;
@@ -28,7 +36,12 @@
 
 #filter-button:hover {
     color: white;
-    background: rgb(50,55,64);
+    background: rgb(50, 55, 64);
+}
+
+#filter-button:disabled {
+    color: grey;
+    cursor: not-allowed;
 }
 
 #filter-info {
