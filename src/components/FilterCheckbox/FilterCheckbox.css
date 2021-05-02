@@ -8,7 +8,7 @@
     display: flex;
     flex-direction: column;
     color: white;
-    margin: 200px auto auto;
+    margin: 150px auto auto;
 }
 
 #filter-options {
@@ -29,4 +29,41 @@
 #filter-button:hover {
     color: white;
     background: rgb(50,55,64);
+}
+
+#filter-info {
+    color: white;
+    background: rgb(25, 20, 26);
+    height: 90px;
+    width: 140px;
+    border: 2px solid white;
+    border-radius: 15px;
+    margin: 10px auto auto;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 14px;
+}
+
+#filter-info p {
+    color: white;
+    cursor: pointer;
+}
+
+#filter-icon {
+    margin-right: 5px;
+}
+
+#delete-icon {
+    color: red;
+    margin-right: 5px;
+}
+
+#selected-filter {
+    display: inline-block;
+    background: grey;
+    border-radius: 25px;
+    width: 100px;
+    text-align: center;
 }

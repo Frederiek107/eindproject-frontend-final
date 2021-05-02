@@ -9,17 +9,17 @@ function SignupForm({onSubmitFunction, registerEmail, loading, registerSuccess, 
             <main id='signup-title'><h1>Sign up</h1></main>
             <label htmlFor='email'>
                 Email:
-                <input id='email' type='text' name='email' {...registerEmail}/>
+                <input {...registerEmail} id='email' type='text' name='email'/>
                 {errorEmail && <p id='error'>This field is required. Use a valid email address.</p>}
             </label>
             <label htmlFor='username'>
                 Username:
-                <input id='username' type='text' name='username' {...registerUsername}/>
+                <input {...registerUsername} id='username' type='text' name='username'/>
                 {errorUsername && <p id='error'>This field is required.</p>}
             </label>
             <label htmlFor='password'>
                 Password:
-                <input id='password' type='password' name='password' {...registerPassword}/>
+                <input {...registerPassword} id='password' type='password' name='password'/>
                 {errorPassword && <p id='error'>This field is required.</p>}
             </label>
             <button>Sign up</button>

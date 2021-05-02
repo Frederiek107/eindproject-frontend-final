@@ -45,3 +45,7 @@ body {
     content: '';
     width: 10px;
 }
+
+input {
+    padding-left: 10px;
+}

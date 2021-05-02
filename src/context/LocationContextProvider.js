@@ -1,9 +1,9 @@
-import React, {createContext, useState} from 'react';
+import React, {createContext, useEffect, useState} from 'react';
 
 export const LocationContext = createContext(null);
 
 function LocationContextProvider({children}) {
-    const [location, setLocation] = useState('67');
+    const [location, setLocation] = useState('21');
 
     const data = {
         location: location,

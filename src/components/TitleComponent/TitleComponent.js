@@ -4,10 +4,11 @@ import './TitleComponent.css'
 import {FaStar} from 'react-icons/fa'
 import removeTitleFaults from '../../helpers/removeTitleFaults';
 import TitleDetails from '../TitleDetails/TitleDetails';
+import useFitText from 'use-fit-text';
 
-function TitleComponent({netflixID, imdbID, title, image, imdbRating, vtype}) {
-    const history = useHistory();
+function TitleComponent({netflixID, title, image, imdbRating,}) {
     const [isOpen, toggleIsOpen] = useState(false);
+    const { fontSize, ref } = useFitText();
 
     function togglePopup() {
         toggleIsOpen(!isOpen);
@@ -16,7 +17,7 @@ function TitleComponent({netflixID, imdbID, title, image, imdbRating, vtype}) {
     return (
         <>
         <div key={netflixID} className='title-component' onClick={togglePopup}>
-            <div id='title'>{removeTitleFaults(title)}</div>
+            <div id='title' ref={ref} style={{ fontSize, height: 45, width: 180 }}>{removeTitleFaults(title)}</div>
             <img id='image' src={image} alt='netflix-title'/>
             <div id='imdb'><FaStar id="star"/> {imdbRating !== null && imdbRating !== 'notfound' ? imdbRating : 'N/A'}
             </div>

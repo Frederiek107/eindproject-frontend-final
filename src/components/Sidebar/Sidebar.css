@@ -5,6 +5,7 @@
     width: 200px;
     border-right: 1px solid white;
     grid-area: sidebar;
+    z-index: +1;
 }
 
 .sidebar::after {
@@ -18,4 +19,5 @@
     position: absolute;
     z-index: -1;
 }
+
 

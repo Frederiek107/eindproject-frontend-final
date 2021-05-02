@@ -56,7 +56,7 @@ function UserContextProvider({children}) {
         localStorage.setItem('email', userState.email);
         localStorage.setItem('token', jwtToken);
         fetchUserData(jwtToken);
-        setTimeout(()=>{history.push('/profile')}, 3000);
+        setTimeout(()=>{history.push('/home')}, 3000);
     }
 
     function logoutFunction() {
