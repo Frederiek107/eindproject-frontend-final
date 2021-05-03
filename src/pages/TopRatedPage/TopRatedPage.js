@@ -4,7 +4,7 @@ import TitleComponent from '../../components/TitleComponent/TitleComponent';
 import Sidebar from '../../components/Sidebar/Sidebar';
 import {LocationContext} from '../../context/LocationContextProvider';
 import NavBar from '../../components/NavBar/NavBar';
-import {Redirect} from "react-router-dom";
+import {Redirect} from 'react-router-dom';
 
 function TopRatedPage({loginStatus, jwtToken}) {
     const [error, toggleError] = useState(false);

@@ -34,7 +34,6 @@ function SearchPage({loginStatus, jwtToken}) {
                         countrylist: location,
                     }
                 });
-            console.log(response);
             response && setQuery(response.data.results);
             setData(response.data.results);
         } catch (e) {
@@ -65,7 +64,7 @@ function SearchPage({loginStatus, jwtToken}) {
                         setQuery={setQuery}
                     />
                     <section className='component-wrapper'>
-                        {(query!==null && query !==undefined) && query.map((result) => {
+                        {(query !== null && query !== undefined) && query.map((result) => {
                             return <TitleComponent
                                 key={result.nfid}
                                 netflixID={result.nfid}
@@ -77,7 +76,8 @@ function SearchPage({loginStatus, jwtToken}) {
                             />
                         })}
                         {initialState && <p id='search-message'>Start searching!</p>}}
-                        {query !== null && query=== undefined && <p id='search-notfound'>Hmm..we couldn't find anything. Please try searching again!</p>}
+                        {query !== null && query === undefined &&
+                        <p id='search-notfound'>Hmm..we couldn't find anything. Please try searching again!</p>}
                         {error && <p>{errormessage}</p>}
                     </section>
                 </section>

@@ -18,8 +18,6 @@ import UserContextProvider, {UserContext} from './context/UserContext';
 function App() {
     const {status} = useContext(UserContext);
     const jwtToken = localStorage.getItem('token');
-    console.log(status);
-    console.log(jwtToken);
 
     return (
 

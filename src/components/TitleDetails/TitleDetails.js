@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
-import {useLocation} from 'react-router-dom'
 import './TitleDetails.css'
 import removeTitleFaults from '../../helpers/removeTitleFaults';
 
@@ -8,7 +7,6 @@ function TitleDetails({netflixID, closePopup}) {
     const [result, setResult] = useState(null);
 
     async function fetchDetails() {
-        console.log("HOE VAAK WORDT UNOGS AANGEROEPEN?")
         try {
             const response = await axios.get('https://unogsng.p.rapidapi.com/title',
                 {
@@ -21,7 +19,6 @@ function TitleDetails({netflixID, closePopup}) {
                     }
                 });
             response && setResult(response.data.results[0]);
-            console.log(response);
         } catch (e) {
             console.error(e);
         }

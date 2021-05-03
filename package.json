@@ -1,5 +1,5 @@
 {
-  "name": "eindproject-frontend",
+  "name": "",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -46,5 +46,26 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "description": "##Inleiding Deze applicatie geeft toegang tot de Netflix-database. Je kunt via de zoekpagina naar titels zoeken en daarnaast kun je de meest recent toegevoegde titels en de volgens IMDB hoogst gewaardeerde titels vinden.",
+  "main": "index.js",
+  "devDependencies": {
+    "@babel/plugin-syntax-jsx": "^7.12.13",
+    "@babel/preset-react": "^7.13.13",
+    "jest": "^26.6.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Frederiek107/eindproject-frontend.git"
+  },
+  "keywords": [
+    "jest",
+    "testing"
+  ],
+  "author": "Frederiek ten Broeke",
+  "license": "ISC",
+  "bugs": {
+    "url": ""
+  },
+  "homepage": ""
 }

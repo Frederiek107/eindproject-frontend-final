@@ -52,7 +52,6 @@ function UserContextProvider({children}) {
     }
 
     async function loginFunction(jwtToken) {
-        console.log(jwtToken);
         localStorage.setItem('email', userState.email);
         localStorage.setItem('token', jwtToken);
         fetchUserData(jwtToken);
@@ -69,7 +68,6 @@ function UserContextProvider({children}) {
 
     function checkAuthenticationFunction() {
         const token= localStorage.getItem('token');
-        console.log(token);
         if (token || userState.status ==='done') {
         return true;
         }
