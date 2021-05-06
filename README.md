@@ -1,30 +1,35 @@
 # Installatiehandleiding
 
-##Inleiding
+## Inleiding
+
 Deze applicatie geeft toegang tot de Netflix-database.
 Je kunt via de zoekpagina naar titels zoeken en daarnaast kun je de meest recent toegevoegde titels vinden, evenals de titels met de hoogste IMDb-ratings.
 
 
 ![](.README_images/f8586ddc.png)
 
+Dit project is opgezet met [Create React App](https://github.com/facebook/create-react-app).
 
-##Applicatie installeren
+## Applicatie installeren
+
 Als je het project gecloned hebt, installeer je de node_modules met behulp van het volgende commando in de terminal:
 
-npm install
+`npm install`
 
 Vervolgens kun je de applicatie starten met behulp van het commando:
 
-npm start
+`npm start`
 
-Of gebruik de WebStorm knop (npm start). Open http://localhost:3000 om de pagina in de browser te bekijken.
+Of gebruik de WebStorm-knop (npm start). Open http://localhost:3000 om de pagina in de browser te bekijken.
 
-##Applicatie starten
+## Applicatie starten
+
 Om de applicatie te starten, zul je je eerst moeten registreren met een e-mailadres, gebruikersnaam en wachtwoord. Het registratieproces kan de eerste keer even duren. Let op: als je 30 minuten niet actief bent geweest wordt de database automatisch geleegd. Registreer je in dat geval opnieuw.
 
 Na registratie kun je inloggen op de inlogpagina met je gebruikersnaam en wachtwoord. Vul hier ook de locatie in waarvan je de Netflix-database wilt zien.
 
-##Applicatie gebruiken
+## Applicatie gebruiken
+
 Om de applicatie te gebruiken, heb je een API-key nodig. Deze kun je aanvragen op de volgende website:
 https://rapidapi.com/unogs/api/unogsng.
 

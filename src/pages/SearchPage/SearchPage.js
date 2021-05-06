@@ -6,6 +6,7 @@ import TitleComponent from '../../components/TitleComponent/TitleComponent';
 import Sidebar from '../../components/Sidebar/Sidebar';
 import {LocationContext} from '../../context/LocationContextProvider';
 import NavBar from '../../components/NavBar/NavBar';
+import ScrollToTop from '../../components/ScrollToTop/ScrollToTop';
 
 function SearchPage({loginStatus, jwtToken}) {
     const [initialState, toggleInitialState] = useState(true);
