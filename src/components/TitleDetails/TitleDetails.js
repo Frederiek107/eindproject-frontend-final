@@ -39,7 +39,7 @@ function TitleDetails({netflixID, closePopup}) {
                         </span>
 
                 <section className='title-details'>
-                <img id='details-image' src={result.lgimg} alt='title-image'/>
+                <img id='details-image' src={result.lgimg} alt='poster'/>
 
                 <section id='title-info'>
                     <p><b>Release:</b> {result.year}</p>

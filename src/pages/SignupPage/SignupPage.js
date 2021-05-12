@@ -25,7 +25,7 @@ function SignupPage() {
             response && toggleRegisterSuccess(true);
             response && toggleLoading(false);
             setTimeout(() => {
-                history.push('/')
+                history.push('/login')
             }, 2000);
         } catch (e) {
             console.error(e);

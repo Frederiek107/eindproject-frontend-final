@@ -1,14 +1,15 @@
 import React, {useContext} from 'react';
 import './App.css';
 import Loginpage from '../src/pages/Loginpage/Loginpage'
-import {Switch, Route} from 'react-router-dom';
-import SearchPage from './pages/SearchPage/SearchPage'
+import Homepage from './pages/Homepage/Homepage';
+import Searchpage from './pages/Searchpage/Searchpage'
 import NewContentPage from '../src/pages/NewContentPage/NewContentPage'
 import TitleDetails from './components/TitleDetails/TitleDetails'
 import TopRatedPage from './pages/TopRatedPage/TopRatedPage';
-import ProfilePage from './pages/ProfilePage/ProfilePage';
+import Profilepage from './pages/Profilepage/Profilepage';
 import SignupPage from './pages/SignupPage/SignupPage';
 import {UserContext} from './context/UserContext';
+import {Switch, Route} from 'react-router-dom';
 
 
 function App() {
@@ -19,6 +20,10 @@ function App() {
         <Switch>
 
             <Route exact path='/'>
+                <Homepage/>
+            </Route>
+
+            <Route exact path='/login'>
                 <Loginpage/>
             </Route>
 
@@ -27,7 +32,7 @@ function App() {
             </Route>
 
             <Route exact path='/home'>
-                <SearchPage
+                <Searchpage
                     loginStatus={status}
                     jwtToken={jwtToken}
                 />
@@ -52,7 +57,7 @@ function App() {
             </Route>
 
             <Route path='/profile'>
-                <ProfilePage
+                <Profilepage
                     loginStatus={status}
                     jwtToken={jwtToken}
                 />

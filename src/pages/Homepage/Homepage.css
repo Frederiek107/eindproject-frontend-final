@@ -1,0 +1,68 @@
+.banner {
+    background-blend-mode: darken;
+    height: 77vh;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    background: rgba(35,37,41,0.8);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: rgb(187,188,189);
+    margin: auto auto;
+}
+
+#banner-container {
+    padding: 70px;
+    width: 500px;
+    background: rgba(0,0,0,0.4);
+    border-radius: 15px;
+}
+
+#banner-title {
+    font-weight: bold;
+    font-size: 34px;
+    color: white;
+}
+
+#banner-text {
+    font-size: 20px;
+    position: relative;
+    -webkit-animation: moving 5s infinite;
+    animation: moving 7s;
+}
+
+@keyframes moving {
+    from {left: -500px;}
+    to {left: 0;}
+}
+
+#navigate-login {
+    color: white;
+    padding: 10px 10px 13px;
+    font-weight: 700;
+    font-size: 24px;
+    text-align: center;
+    width: 130px;
+    height: 30px;
+    background: rgb(50,55,64);
+    cursor: pointer;
+    border-radius: 45px;
+}
+
+#navigate-login:hover {
+    background: white;
+    color: black;
+}
+
+#login-bar {
+    position: absolute;
+    height: 23vh;
+    width: 100%;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

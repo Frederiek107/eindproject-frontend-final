@@ -1,13 +1,13 @@
 import React, {useState, useEffect, useContext} from 'react';
 import {Redirect} from 'react-router-dom';
-import './SearchPage.css'
+import './Searchpage.css'
 import axios from 'axios';
 import TitleComponent from '../../components/TitleComponent/TitleComponent';
 import Sidebar from '../../components/Sidebar/Sidebar';
 import {LocationContext} from '../../context/LocationContextProvider';
 import NavBar from '../../components/NavBar/NavBar';
 
-function SearchPage({loginStatus, jwtToken}) {
+function Searchpage({loginStatus, jwtToken}) {
     const [initialState, toggleInitialState] = useState(true);
     const [error, toggleError] = useState(false);
     const [errormessage, setErrormessage] = useState('');
@@ -75,7 +75,7 @@ function SearchPage({loginStatus, jwtToken}) {
                                 vtype={result.vtype}
                             />
                         })}
-                        {initialState && <p id='search-message'>Start searching!</p>}}
+                        {initialState && <p id='search-message'>Start searching!</p>}
                         {query !== null && query === undefined &&
                         <p id='search-notfound'>We couldn't find anything. Please try searching again!</p>}
                         {error && <p>{errormessage}</p>}
@@ -88,4 +88,4 @@ function SearchPage({loginStatus, jwtToken}) {
     )
 }
 
-export default SearchPage;
+export default Searchpage;

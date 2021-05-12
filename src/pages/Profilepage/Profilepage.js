@@ -1,13 +1,13 @@
 import React, {useContext, useEffect, useState} from 'react';
 import {UserContext} from '../../context/UserContext';
-import './ProfilePage.css'
+import './Profilepage.css'
 import NavBar from '../../components/NavBar/NavBar';
 import {Redirect} from 'react-router-dom';
 import DropdownMenu from '../../components/DropdownMenu/DropdownMenu';
 import {LocationContext} from '../../context/LocationContextProvider';
 import fetchCountry from '../../helpers/fetchCountry';
 
-function ProfilePage({loginStatus, jwtToken}) {
+function Profilepage({loginStatus, jwtToken}) {
     const {user} = useContext(UserContext);
     const [value, setValue] = useState('');
     const [country, setCountry] = useState('');
@@ -55,4 +55,4 @@ function ProfilePage({loginStatus, jwtToken}) {
     )
 }
 
-export default ProfilePage;
+export default Profilepage;

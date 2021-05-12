@@ -6,6 +6,7 @@
 2. Lijst van benodigdheden
 3. Installatiehandleiding
 4. Beschikbare NPM-commando's
+5. Bronvermelding
 
 ## 1. Inleiding
 
@@ -70,4 +71,8 @@ Voert de unit tests uit.
 Optimaliseert de `build`-map voor een optimale uitvoering van de applicatie.
 
 Bekijk de [React-documentatie](https://reactjs.org/) voor meer informatie.
+
+## 5. Bronvermelding
+- Achtergrondafbeelding: https://unsplash.com/
+
 
