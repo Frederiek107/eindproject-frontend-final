@@ -47,7 +47,7 @@ function UserContextProvider({children}) {
                 status: 'done',
             });
         } catch (e) {
-            console.error(e);
+            console.error(e.message);
         }
     }
 
@@ -68,12 +68,7 @@ function UserContextProvider({children}) {
 
     function checkAuthenticationFunction() {
         const token= localStorage.getItem('token');
-        if (token || userState.status ==='done') {
-        return true;
-        }
-        else {
-            return false;
-        }
+        return !!(token || userState.status === 'done');
     }
 
     return (

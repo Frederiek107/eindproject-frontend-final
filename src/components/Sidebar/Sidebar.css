@@ -9,7 +9,7 @@
 }
 
 .sidebar::after {
-    content: "";
+    content: '';
     background: linear-gradient(black, grey, black);
     opacity: 0.5;
     top: 0;

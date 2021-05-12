@@ -13,6 +13,7 @@ function SignupPage() {
     const history = useHistory();
 
     async function onSubmit(data) {
+        setErrorMessage('');
         try {
             toggleLoading(true);
             const response = await axios.post('https://polar-lake-14365.herokuapp.com/api/auth/signup', {
@@ -29,12 +30,11 @@ function SignupPage() {
         } catch (e) {
             console.error(e);
             toggleLoading(false);
-            setErrorMessage("Sorry, the connection with the database was lost. Please try to register again.")
+            setErrorMessage("Sorry, the connection with the database was lost or your data couldn't be registered. Please try to register again.")
         }
     }
 
     return (
-        <>
             <SignupForm
             onSubmitFunction={handleSubmit(onSubmit)}
             registerEmail={{...register('email', {
@@ -54,7 +54,6 @@ function SignupPage() {
             errorPassword={errors.password}
             errorMessage={errorMessage}
             />
-        </>
     )
 }
 

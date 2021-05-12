@@ -19,6 +19,7 @@
     border-radius: 15px;
     width: 70%;
     height: 50%;
+    padding: 20px;
 }
 
 #details-title {
@@ -31,9 +32,10 @@
 #title-info {
     border: 2px solid white;
     border-radius: 15px;
-    padding: 10px;
+    padding: 15px;
     margin: 20px;
     height: 200px;
+    background: rgba(139, 6, 6, 0.5);
 }
 
 #details-image {
@@ -49,7 +51,6 @@
 }
 
 .close-icon {
-    justify-self: flex-end;
     content: 'x';
     cursor: pointer;
     background: rgba(140, 135, 135, 0.9);
@@ -60,4 +61,9 @@
     padding: 5px;
     text-align: center;
     font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.close-icon:hover {
+    background: rgba(74, 72, 72, 0.9);
 }

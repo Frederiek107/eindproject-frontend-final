@@ -15,7 +15,7 @@ function TitleDetails({netflixID, closePopup}) {
                         'x-rapidapi-host': 'unogsng.p.rapidapi.com',
                     },
                     params: {
-                        netflixid: netflixID
+                        netflixid: netflixID,
                     }
                 });
             response && setResult(response.data.results[0]);
@@ -30,32 +30,32 @@ function TitleDetails({netflixID, closePopup}) {
 
     return (
         <>
-            <div className='popup-box'>
+            <main className='popup-box'>
             {result &&
-                <div className='details'>
+                <section className='details'>
                     <span id='details-title'>
                         <h1>{removeTitleFaults(result.title)}</h1>
                     <p className={'close-icon'} onClick={closePopup}>x</p>
                         </span>
 
-                <span className='title-details'>
+                <section className='title-details'>
                 <img id='details-image' src={result.lgimg} alt='title-image'/>
 
-                <div id='title-info'>
+                <section id='title-info'>
                     <p><b>Release:</b> {result.year}</p>
-                    <p><b>Rating:</b> {result.imdbrating}</p>
+                    <p><b>IMDb-rating:</b> {result.imdbrating}</p>
                 <p><b>Runtime:</b> {result.imdbruntime}</p>
                     <p><b>Parents Guide:</b> {result.matlabel}</p>
-                </div>
+                </section>
 
-                </span>
+                </section>
 
-                <span id='description'><b>Description</b>
+                <section id='description'><b>Description</b>
                 <p>{removeTitleFaults(result.synopsis)}</p>
-                    </span>
-                </div>
+                    </section>
+                </section>
             }
-            </div>
+            </main>
         </>
     );
 

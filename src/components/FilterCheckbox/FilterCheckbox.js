@@ -45,15 +45,15 @@ function FilterCheckbox({data, setQuery, query}) {
         <>
             <label htmlFor='checkbox' className='filter-wrapper'>
                 Filter by:
-                <span id='filter-options'>
+                <section id='filter-options'>
                         <input type='radio' id='filter-movie' name='filter' onClick={handleClickMovie}/>
                     <label htmlFor='filter-movie'>Movies</label>
-                    </span>
-                <span id='filter-options'>
+                    </section>
+                <section id='filter-options'>
                         <input type='radio' id='filter-series' name='filter' onClick={handleClickSeries}/>
                       <label htmlFor='filter-series'>Series</label>
-                    </span>
-                <button id='filter-button' onClick={filterSearchData} disabled ={(checkedSeries===false && checkedMovie===false) || query===null}>Filter</button>
+                    </section>
+                <button id='filter-button' onClick={filterSearchData} disabled={(checkedSeries===false && checkedMovie===false) || query===null}>Filter</button>
             </label>
             {filter !== '' &&
             <section id={'filter-info'}>

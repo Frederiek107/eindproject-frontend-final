@@ -1,7 +1,7 @@
 body {
     font-family: 'Segoe UI', sans-serif;
     overflow-x: hidden;
-    background-image: url("assets/photo-1598931587008-88cc8a5e3a40.jpg");
+    background-image: url('assets/photo-1598931587008-88cc8a5e3a40.jpg');
     margin: 0;
     overscroll-behavior-x: contain;
 }
@@ -10,7 +10,7 @@ body {
     height: 100%;
     display: grid;
     grid-template-columns: 200px auto;
-    grid-template-areas: "sidebar component-wrapper";
+    grid-template-areas: 'sidebar component-wrapper';
 }
 
 .loader {
@@ -35,7 +35,8 @@ body {
 
 .component-wrapper {
     display: grid;
-    grid-template-rows: max-content max-content;
+    grid-template-rows: auto auto;
+    grid-template-columns: max-content max-content;
     grid-auto-flow: column;
     overflow-x: scroll;
     grid-area: component-wrapper;

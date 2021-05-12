@@ -37,7 +37,7 @@
 
 .signup-form button {
     cursor: pointer;
-    font-family: "Segoe UI", sans-serif;
+    font-family: 'Segoe UI', sans-serif;
     font-size: 16px;
     text-align: center;
     margin-left: 150px;
@@ -55,6 +55,7 @@
 
 #signup-message {
     font-size: 13px;
+    margin-left: 20px;
 }
 
 #notify-section {

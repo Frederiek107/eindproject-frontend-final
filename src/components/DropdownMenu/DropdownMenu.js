@@ -6,7 +6,7 @@ function DropdownMenu({selectedValue, onChangeFunction}) {
     return (
         <>
             <label>Choose your location: </label>
-            <select id='location' name='location' value={selectedValue} onChange={onChangeFunction}>
+            <select className='location-menu' name='location' value={selectedValue} onChange={onChangeFunction}>
                 <option value=''></option>
                 <option value='21'>Argentina</option>
                 <option value='23'>Australia</option>

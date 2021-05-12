@@ -11,7 +11,7 @@
 
 #login-button {
     cursor: pointer;
-    font-family: "Segoe UI", sans-serif;
+    font-family: 'Segoe UI', sans-serif;
     font-size: 16px;
     padding: 2px;
     font-weight: bold;
@@ -29,4 +29,28 @@
 #login-button:disabled {
     color: grey;
     cursor: not-allowed;
+}
+
+#login-message {
+    font-size: 13px;
+}
+
+#login-error {
+    font-size: 12px;
+    color: red;
+    margin-top: 0;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    font-weight: bolder;
+    letter-spacing: 1px;
+    height: 370px;
+    width: 400px;
+    margin: auto;
+    background: rgba(255, 255, 255, 0.8);
+    border: rgb(75, 78, 84) 2px solid;
+    border-radius: 25px;
+    padding: 20px;
 }

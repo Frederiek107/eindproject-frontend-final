@@ -17,7 +17,7 @@ function Searchbar({input, setInput, setSearchValue}) {
             }}/>
             <button id='search-button' onClick={() => {
                 setSearchValue(input)
-            }}><Search/>
+            }}><Search id='search-icon'/>
             </button>
         </section>
     )

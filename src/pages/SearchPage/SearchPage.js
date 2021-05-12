@@ -6,7 +6,6 @@ import TitleComponent from '../../components/TitleComponent/TitleComponent';
 import Sidebar from '../../components/Sidebar/Sidebar';
 import {LocationContext} from '../../context/LocationContextProvider';
 import NavBar from '../../components/NavBar/NavBar';
-import ScrollToTop from '../../components/ScrollToTop/ScrollToTop';
 
 function SearchPage({loginStatus, jwtToken}) {
     const [initialState, toggleInitialState] = useState(true);
@@ -78,7 +77,7 @@ function SearchPage({loginStatus, jwtToken}) {
                         })}
                         {initialState && <p id='search-message'>Start searching!</p>}}
                         {query !== null && query === undefined &&
-                        <p id='search-notfound'>Hmm..we couldn't find anything. Please try searching again!</p>}
+                        <p id='search-notfound'>We couldn't find anything. Please try searching again!</p>}
                         {error && <p>{errormessage}</p>}
                     </section>
                 </section>

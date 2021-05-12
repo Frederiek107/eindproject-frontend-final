@@ -1,6 +1,14 @@
-.scroll-top {
-    fill: white;
+.scroll-element {
+    display: flex;
+    color: white;
     cursor: pointer;
+    position: sticky;
+    top: 85%;
+    margin-left: 20px;
+}
+
+.scroll-arrow {
+    fill: white;
     width: 40px;
-    margin: 270px auto auto 40px;
+    margin: 5px;
 }

@@ -34,13 +34,13 @@ function NavBar({input, setInput, setSearchValue}) {
                     <li>
                         <NavLink to='/toprated' activeClassName='active-link'><Stars id='icon'/>Top rated</NavLink>
                     </li>
-                    <div>
+                    <section>
                     {location.pathname ==='/home' && <Searchbar
                         input={input}
                         setInput={setInput}
                         setSearchValue={setSearchValue}
                     />}
-                    </div>
+                    </section>
                 </ul>
                 <button id='logout-button' onClick={handleClick}>Log out</button>
             </nav>

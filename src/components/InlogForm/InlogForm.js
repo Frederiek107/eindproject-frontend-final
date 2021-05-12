@@ -1,7 +1,7 @@
 import React, {useContext, useState} from 'react';
 import DropdownMenu from '../DropdownMenu/DropdownMenu';
 import './InlogForm.css'
-import {LocationContext} from "../../context/LocationContextProvider";
+import {LocationContext} from '../../context/LocationContextProvider';
 
 function InlogForm({onSubmitFunction, registerUsername, registerPassword, loginSuccess, errorMessage}) {
     const [value, setValue] = useState('');
@@ -14,7 +14,7 @@ function InlogForm({onSubmitFunction, registerUsername, registerPassword, loginS
     function handleFormChange(e) {
         setInputState({
             ...inputState,
-            [e.target.name]:e.target.value
+            [e.target.name]:e.target.value,
         });
     }
 
@@ -39,7 +39,7 @@ function InlogForm({onSubmitFunction, registerUsername, registerPassword, loginS
                 onChangeFunction={(e)=>{setValue(e.currentTarget.value)}}
             />
             <button disabled={inputState.username ==='' || inputState.password === '' || value === ''} id='login-button' onClick={postLocation}>Log in</button>
-                {loginSuccess === true && <p id='inlogmessage'>Welcome! You're being redirected to the homepage.</p>}
+                {loginSuccess === true && <p id='login-message'>Welcome! You're being redirected to the homepage.</p>}
                 {errorMessage !== '' && <p id='login-error'>{errorMessage}</p>}
             </form>
     )

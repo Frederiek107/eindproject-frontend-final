@@ -8,19 +8,14 @@ import TitleDetails from './components/TitleDetails/TitleDetails'
 import TopRatedPage from './pages/TopRatedPage/TopRatedPage';
 import ProfilePage from './pages/ProfilePage/ProfilePage';
 import SignupPage from './pages/SignupPage/SignupPage';
-import UserContextProvider, {UserContext} from './context/UserContext';
+import {UserContext} from './context/UserContext';
 
-//inbouwen dat pagina's niet te bereiken zijn indien niet ingelogd
-//in de context houden we bij of iemand is ingelogd
-// op deze pagina voeg je aan het component deze context als value toe
-//op de pagina's zelf voeg je conditionele rendering toe
 
 function App() {
     const {status} = useContext(UserContext);
     const jwtToken = localStorage.getItem('token');
 
     return (
-
         <Switch>
 
             <Route exact path='/'>

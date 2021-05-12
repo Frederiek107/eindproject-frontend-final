@@ -30,7 +30,7 @@ function ProfilePage({loginStatus, jwtToken}) {
             <>
                 <NavBar/>
                 <main className='profilepage'>
-                    <section className='profile-title'><h2>Profile</h2></section>
+                    <section className='profile-title'><h2>Welcome</h2></section>
                     <section className='profile-content'>
                         <p><b>Username:</b> {user && user.username}</p>
                         <p><b>Email:</b> {user && user.email}</p>

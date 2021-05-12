@@ -4,19 +4,18 @@ import './ScrollToTop.css';
 
 function ScrollToTop() {
     const [visible, toggleVisible] = useState(false);
-    const [scrollTop, setScrollTop] = useState(0);
 
     function scrollToTop() {
         window.scrollTo({
             top: 0,
-            behavior: 'smooth'
+            behavior: 'smooth',
         });
     }
 
     useEffect(()=>{
         function onScroll() {
             const currentPosition = window.pageYOffset;
-            if (currentPosition > scrollTop) {
+            if (currentPosition > 90) {
                 toggleVisible(true);
             } else {
                 toggleVisible(false);
@@ -24,13 +23,16 @@ function ScrollToTop() {
         }
         window.addEventListener('scroll', onScroll);
         return()=>window.removeEventListener('scroll', onScroll)
-     }, [scrollTop]);
+     }, []);
 
 
     return (
         <>
             {visible && (
-                <ArrowIcon className='scroll-top' onClick={scrollToTop}/>
+                <section className='scroll-element' onClick={scrollToTop}>
+                <ArrowIcon className='scroll-arrow'/>
+                <p>Back to top</p>
+                </section>
             )}
         </>
     )

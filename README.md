@@ -1,16 +1,41 @@
 # Installatiehandleiding
 
-## Inleiding
+## Inhoudsopgave
 
-Deze applicatie geeft toegang tot de Netflix-database.
-Je kunt via de zoekpagina naar titels zoeken en daarnaast kun je de meest recent toegevoegde titels vinden, evenals de titels met de hoogste IMDb-ratings.
+1. Inleiding
+2. Lijst van benodigdheden
+3. Installatiehandleiding
+4. Beschikbare NPM-commando's
+
+## 1. Inleiding
+
+Deze applicatie geeft toegang tot de Netflix-database. Het doel van de applicatie is om een objectiever beeld te schetsen van de kwaliteit van de films en series die Netflix aanbiedt, waarbij de IMDb-ratings als kwaliteitscriterim worden gehanteerd. Daarnaast is het zoeksysteem van Netflix uitgebreid met de mogelijkheid om ook de aangeboden content op andere locaties in de wereld te doorzoeken. Je kunt via de zoekpagina naar titels zoeken en daarnaast kun je de meest recent toegevoegde titels vinden, evenals de titels met de hoogste IMDb-ratings.
 
 
 ![](.README_images/f8586ddc.png)
 
 Dit project is opgezet met [Create React App](https://github.com/facebook/create-react-app).
 
-## Applicatie installeren
+## 2. Lijst van benodigdheden
+
+### Software
+
+Gebruik een geschikte IDE naar keuze om de code te runnen, zoals Webstorm, IntelliJ of Visual Studio Code.
+
+### API-key
+
+Om de applicatie te gebruiken, heb je een API-key nodig. Deze kun je aanvragen op de volgende website:
+https://rapidapi.com/unogs/api/unogsng. Maak vervolgens een .env-bestand aan in de scr-map en plaats daar de API-key onder de naam REACT_APP_API_KEY.
+
+Als je toegang hebt tot de broncode, kun je de API-key van de ontwikkelaar gebruiken in het .env-bestand in de src-map.
+
+### Node.js en NPM
+
+[Download]: https://nodejs.org/en/download/
+
+## 3. Installatiehandleiding
+
+### Applicatie installeren
 
 Als je het project gecloned hebt, installeer je de node_modules met behulp van het volgende commando in de terminal:
 
@@ -20,52 +45,29 @@ Vervolgens kun je de applicatie starten met behulp van het commando:
 
 `npm start`
 
-Of gebruik de WebStorm-knop (npm start). Open http://localhost:3000 om de pagina in de browser te bekijken.
+Open http://localhost:3000 om de pagina in de browser te bekijken.
 
-## Applicatie starten
+### Applicatie starten
 
 Om de applicatie te starten, zul je je eerst moeten registreren met een e-mailadres, gebruikersnaam en wachtwoord. Het registratieproces kan de eerste keer even duren. Let op: als je 30 minuten niet actief bent geweest wordt de database automatisch geleegd. Registreer je in dat geval opnieuw.
 
-Na registratie kun je inloggen op de inlogpagina met je gebruikersnaam en wachtwoord. Vul hier ook de locatie in waarvan je de Netflix-database wilt zien.
+Na registratie kun je inloggen op de inlogpagina met je gebruikersnaam en wachtwoord. Vul hier ook de gewenste locatie in.
 
-## Applicatie gebruiken
-
-Om de applicatie te gebruiken, heb je een API-key nodig. Deze kun je aanvragen op de volgende website:
-https://rapidapi.com/unogs/api/unogsng.
-
-Als je toegang hebt tot de broncode, kun je ook de API-key gebruiken in het .env-bestand in de src-map. Of neem contact op met de ontwikkelaar.
-
-
-## Available Scripts
-
-In the project directory, you can run:
+## 4. Beschikbare NPM-commando's 
 
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Start de applicatie.\
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Als je wijzigingen maakt in de code zal de pagina herladen. 
 
 ### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Voert de unit tests uit.\
 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Optimaliseert de applicatie en de `build`-map voor de beste prestatie.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Bekijk de [React-documentatie](https://reactjs.org/) voor meer informatie.
 
