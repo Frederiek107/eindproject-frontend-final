@@ -9,10 +9,10 @@
 
 ## 1. Inleiding
 
-Deze applicatie geeft toegang tot de Netflix-database. Het doel van de applicatie is om een objectiever beeld te schetsen van de kwaliteit van de films en series die Netflix aanbiedt, waarbij de IMDb-ratings als kwaliteitscriterim worden gehanteerd. Daarnaast is het zoeksysteem van Netflix uitgebreid met de mogelijkheid om ook de aangeboden content op andere locaties in de wereld te doorzoeken. Je kunt via de zoekpagina naar titels zoeken en daarnaast kun je de meest recent toegevoegde titels vinden, evenals de titels met de hoogste IMDb-ratings.
+Deze applicatie geeft toegang tot de Netflix-database. Het doel van de applicatie is om een objectiever beeld te schetsen van de kwaliteit van de films en series die Netflix aanbiedt, waarbij de IMDb-ratings als kwaliteitscriterium worden gehanteerd. Daarnaast is het zoeksysteem van Netflix uitgebreid met de mogelijkheid om de aangeboden content op andere locaties ter wereld te doorzoeken. Je kunt via de zoekpagina naar titels zoeken en daarnaast kun je de meest recent toegevoegde titels vinden, evenals de titels met de hoogste IMDb-ratings.
 
 
-![](.README_images/f8586ddc.png)
+![](src/assets/f8586ddc.png)
 
 Dit project is opgezet met [Create React App](https://github.com/facebook/create-react-app).
 
@@ -31,7 +31,7 @@ Als je toegang hebt tot de broncode, kun je de API-key van de ontwikkelaar gebru
 
 ### Node.js en NPM
 
-[Download]: https://nodejs.org/en/download/
+Download: https://nodejs.org/en/download.
 
 ## 3. Installatiehandleiding
 
@@ -57,17 +57,17 @@ Na registratie kun je inloggen op de inlogpagina met je gebruikersnaam en wachtw
 
 ### `npm start`
 
-Start de applicatie.\
+Start de applicatie.
 
 Als je wijzigingen maakt in de code zal de pagina herladen. 
 
 ### `npm test`
 
-Voert de unit tests uit.\
+Voert de unit tests uit.
 
 ### `npm run build`
 
-Optimaliseert de applicatie en de `build`-map voor de beste prestatie.
+Optimaliseert de `build`-map voor een optimale uitvoering van de applicatie.
 
 Bekijk de [React-documentatie](https://reactjs.org/) voor meer informatie.
 
