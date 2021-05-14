@@ -9,7 +9,7 @@ import {Redirect} from 'react-router-dom';
 
 function NewContentPage({loginStatus, jwtToken}) {
     const [error, toggleError] = useState(false);
-    const [errormessage, setErrormessage] = useState('')
+    const [errormessage, setErrormessage] = useState(null)
     const [query, setQuery] = useState([]);
     const [data, setData] = useState([]);
     const {location} = useContext(LocationContext);
@@ -32,7 +32,7 @@ function NewContentPage({loginStatus, jwtToken}) {
             setData(response.data.results);
         } catch (e) {
             toggleError(true);
-            setErrormessage("We couldn't connect you to the server. Please check your internet connection and try again.");
+            setErrormessage(<p id='no-connection-error'>We couldn't connect you to the server. Please check your internet connection and try again.</p>);
             console.error(e);
         }
     }
@@ -63,7 +63,7 @@ function NewContentPage({loginStatus, jwtToken}) {
                                 vtype={result.vtype}
                             />
                         })}
-                        {error && <p>{errormessage}</p>}
+                        {error && {errormessage}}
                     </section>
                 </main>
             </>

@@ -10,7 +10,7 @@ import NavBar from '../../components/NavBar/NavBar';
 function Searchpage({loginStatus, jwtToken}) {
     const [initialState, toggleInitialState] = useState(true);
     const [error, toggleError] = useState(false);
-    const [errormessage, setErrormessage] = useState('');
+    const [errormessage, setErrormessage] = useState(null);
     const [query, setQuery] = useState(null);
     const [data, setData] = useState([]);
     const [searchValue, setSearchValue] = useState('');
@@ -39,7 +39,7 @@ function Searchpage({loginStatus, jwtToken}) {
         } catch (e) {
             console.error(e);
             toggleError(true);
-            setErrormessage("We couldn't connect you to the server. Please check your internet connection and try again.")
+            setErrormessage(<p id='no-connection-error'>We couldn't connect you to the server. Please check your internet connection and try again.</p>)
         }
         setInput('');
     }
@@ -78,7 +78,7 @@ function Searchpage({loginStatus, jwtToken}) {
                         {initialState && <p id='search-message'>Start searching!</p>}
                         {query !== null && query === undefined &&
                         <p id='search-notfound'>We couldn't find anything. Please try searching again!</p>}
-                        {error && <p>{errormessage}</p>}
+                        {error && {errormessage}}
                     </section>
                 </section>
             </main>

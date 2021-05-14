@@ -34,7 +34,7 @@ function Profilepage({loginStatus, jwtToken}) {
                     <section className='profile-content'>
                         <p><b>Username:</b> {user && user.username}</p>
                         <p><b>Email:</b> {user && user.email}</p>
-                        <p><b>Selected location: </b>{loading ? <p>loading</p> : country.name}</p>
+                        <p><b>Selected location: </b>{country.name}</p>
                         <p><b>Change location: </b></p>
                         <DropdownMenu
                             selectedValue={value}

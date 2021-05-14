@@ -50,3 +50,9 @@ body {
 input {
     padding-left: 10px;
 }
+
+#no-connection-error {
+    margin: 10px;
+    color: white;
+}
+

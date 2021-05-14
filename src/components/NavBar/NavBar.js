@@ -19,7 +19,7 @@ function NavBar({input, setInput, setSearchValue}) {
     }
 
     return (
-        <header>
+        <header className='nav-header'>
             <nav>
                 <ul>
                     <li>
@@ -34,15 +34,15 @@ function NavBar({input, setInput, setSearchValue}) {
                     <li>
                         <NavLink to='/toprated' activeClassName='active-link'><Stars id='icon'/>Top rated</NavLink>
                     </li>
-                    <section>
-                    {location.pathname ==='/home' && <Searchbar
+                </ul>
+                <section id='search-section'>
+                    {location.pathname === '/home' ? <Searchbar
                         input={input}
                         setInput={setInput}
                         setSearchValue={setSearchValue}
-                    />}
-                    </section>
-                </ul>
+                    /> : <p id='search-section-space'></p>}
                 <button id='logout-button' onClick={handleClick}>Log out</button>
+                </section>
             </nav>
         </header>
     )
