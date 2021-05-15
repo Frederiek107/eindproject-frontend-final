@@ -10,7 +10,7 @@
 
 ## 1. Inleiding
 
-Deze desktop-applicatie geeft toegang tot de Netflix-database. Het doel van de applicatie is om een objectiever beeld te schetsen van de kwaliteit van de films en series die Netflix aanbiedt, waarbij de IMDb-ratings als kwaliteitscriterium worden gehanteerd. Daarnaast is het zoeksysteem van Netflix uitgebreid met de mogelijkheid om de aangeboden content op andere locaties ter wereld te doorzoeken. Je kunt via de zoekpagina naar titels zoeken en daarnaast kun je de meest recent toegevoegde titels vinden, evenals de titels met de hoogste IMDb-ratings.
+Deze desktop-applicatie geeft toegang tot de Netflix-database. Het doel van de applicatie is om, ten opzichte van de persoonsgebonden content die Netflix aan de gebruiker toont, een objectiever beeld te schetsen van de kwaliteit van de films en series die Netflix aanbiedt. Hierbij worden de IMDb-ratings als kwaliteitscriterium gehanteerd. Daarnaast is het zoeksysteem van Netflix uitgebreid met de mogelijkheid om de aangeboden content op andere locaties ter wereld te doorzoeken. Je kunt via de zoekpagina naar titels zoeken en daarnaast kun je de meest recent toegevoegde titels vinden, evenals de titels met de hoogste IMDb-ratings.
 
 
 ![](src/assets/f8586ddc.png)

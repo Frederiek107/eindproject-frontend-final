@@ -3,8 +3,8 @@
     color: white;
     background: rgba(112, 112, 112, 0.75);
     border-radius: 10px;
-    width: 180px;
-    height: 320px;
+    width: 80%;
+    height: 87%;
     padding: 15px;
     margin: 10px;
     display: flex;
@@ -41,5 +41,6 @@
 #star {
     color: gold;
 }
+
 
 

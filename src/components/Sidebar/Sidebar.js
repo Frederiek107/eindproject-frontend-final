@@ -6,14 +6,14 @@ import ScrollToTop from "../ScrollToTop/ScrollToTop";
 function Sidebar({data, query, setQuery}) {
 
     return (
-        <main className='sidebar'>
+        <span className='sidebar'>
             <FilterCheckbox
             data={data}
             setQuery={setQuery}
             query={query}
             />
             <ScrollToTop/>
-        </main>)
+        </span>)
 }
 
 export default Sidebar;
