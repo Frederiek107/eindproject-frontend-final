@@ -51,7 +51,7 @@ input {
     padding-left: 10px;
 }
 
-#no-connection-error {
+#server-error {
     margin: 10px;
     color: white;
 }

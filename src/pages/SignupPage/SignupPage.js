@@ -30,7 +30,7 @@ function SignupPage() {
         } catch (e) {
             console.error(e);
             toggleLoading(false);
-            setErrorMessage("Sorry, the connection with the database was lost or your data couldn't be registered. Please try to register again.")
+            setErrorMessage("Sorry, the connection with the database was lost or your data couldn't be registered. Please try to sign up again.")
         }
     }
 

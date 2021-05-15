@@ -8,7 +8,7 @@ import {Redirect} from 'react-router-dom';
 
 function TopRatedPage({loginStatus, jwtToken}) {
     const [error, toggleError] = useState(false);
-    const [errormessage, setErrormessage] = useState(null)
+    const [errormessage, setErrormessage] = useState('');
     const [query, setQuery] = useState([]);
     const [data, setData] = useState([]);
     const {location} = useContext(LocationContext);
@@ -32,7 +32,7 @@ function TopRatedPage({loginStatus, jwtToken}) {
             setData(response.data.results);
         } catch (e) {
             toggleError(true);
-            setErrormessage(<p id='no-connection-error'>We couldn't connect you to the server. Please check your internet connection and try again.</p>);
+            setErrormessage("We couldn't connect you to the server. Please check your internet connection and try again.");
             console.error(e);
         }
     }
@@ -63,7 +63,7 @@ function TopRatedPage({loginStatus, jwtToken}) {
                                 vtype={result.vtype}
                             />
                         })}
-                        {error && {errormessage}}
+                        {error && <p id='server-error'>{errormessage}</p>}
                     </section>
                 </main>
             </>
