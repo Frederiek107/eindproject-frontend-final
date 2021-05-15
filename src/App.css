@@ -40,7 +40,8 @@ body {
 
 @media(min-height: 800px) {
     .component-wrapper {
-        grid-template-rows: max-content max-content max-content;
+        margin-top: 100px;
+        margin-bottom: 100px;
     }
 }
 
