@@ -16,8 +16,7 @@ input:focus {
     -webkit-background-clip: text;
     color: transparent;
     font-family: 'Segoe UI', sans-serif;
-    animation: reveal 3s ease-in-out forwards 0.2s,
-    glow 2s linear infinite;
+    animation: reveal 3s ease-in-out forwards 0.2s, glow 2s linear infinite;
 }
 
 @keyframes reveal {

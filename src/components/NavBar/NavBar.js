@@ -36,13 +36,13 @@ function NavBar({input, setInput, setSearchValue}) {
                     </li>
                 </ul>
                 <section id='search-section'>
-                    {location.pathname === '/home' ? <Searchbar
+                    {location.pathname === '/home' && <Searchbar
                         input={input}
                         setInput={setInput}
                         setSearchValue={setSearchValue}
-                    /> : <p id='search-section-space'></p>}
-                <button id='logout-button' onClick={handleClick}>Log out</button>
+                    />}
                 </section>
+                <button id='logout-button' onClick={handleClick}>Log out</button>
             </nav>
         </header>
     )

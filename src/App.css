@@ -1,9 +1,9 @@
 body {
     font-family: 'Segoe UI', sans-serif;
-    overflow-x: hidden;
     background-image: url('assets/photo-1598931587008-88cc8a5e3a40.jpg');
     margin: 0;
     overscroll-behavior-x: contain;
+    overflow-y: auto;
 }
 
 .contentpage {
@@ -29,17 +29,19 @@ body {
     }
 }
 
-::-webkit-scrollbar {
-    width: 0;
-}
-
 .component-wrapper {
     display: grid;
-    grid-template-rows: auto auto;
+    grid-template-rows: max-content max-content;
     grid-template-columns: max-content max-content;
     grid-auto-flow: column;
-    overflow-x: scroll;
     grid-area: component-wrapper;
+    overflow-x: auto;
+}
+
+@media(min-height: 800px) {
+    .component-wrapper {
+        grid-template-rows: max-content max-content max-content;
+    }
 }
 
 .component-wrapper:after {

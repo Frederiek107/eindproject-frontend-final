@@ -60,7 +60,7 @@ nav ul li:hover {
 }
 
 #logout-button {
-    position: static;
+    position: absolute;
     right: 5%;
     font-family: 'Segoe UI', sans-serif;
     font-size: 16px;
@@ -71,13 +71,10 @@ nav ul li:hover {
     color: white;
     background: transparent;
     cursor: pointer;
-    margin-left: 40px;
+    margin: auto;
 }
 
 #logout-button:hover {
     font-weight: bold;
 }
 
-#search-section-space {
-    width: 615px;
-}
