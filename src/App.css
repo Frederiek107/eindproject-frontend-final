@@ -35,7 +35,7 @@ body {
 
 .component-wrapper {
     display: grid;
-    grid-template-rows: max-content max-content;
+    grid-template-rows: auto auto;
     grid-template-columns: max-content max-content;
     grid-auto-flow: column;
     grid-area: component-wrapper;
@@ -67,9 +67,15 @@ input {
     color: white;
 }
 
-@media(min-height: 800px) {
+@media(min-height: 800px) and (max-height: 1000px) {
     .component-wrapper {
-        grid-template-rows: max-content max-content max-content;
+        margin-top: 10%;
+    }
+}
+
+@media(min-height: 1000px) {
+    .component-wrapper {
+        grid-template-rows: auto auto auto;
     }
 }
 
