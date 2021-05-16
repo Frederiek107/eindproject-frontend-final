@@ -35,7 +35,3 @@ input:focus {
     color: white;
     font-size: 20px;
 }
-
-#message-display {
-    display: none;
-}
