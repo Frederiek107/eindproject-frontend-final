@@ -35,10 +35,10 @@ body {
 
 .component-wrapper {
     display: grid;
-    grid-template-rows: auto auto;
-    grid-template-columns: max-content max-content;
-    grid-gap: 10px;
+    grid-template-rows: repeat(2, auto);
+    grid-template-columns: repeat(auto-fill, max-content);
     grid-auto-flow: column;
+    justify-content: start;
     grid-area: component-wrapper;
     overflow-x: auto;
 }
@@ -76,7 +76,7 @@ input {
 
 @media(min-height: 1000px) {
     .component-wrapper {
-        grid-template-rows: auto auto auto;
+        grid-template-rows: repeat(3,auto);
     }
 }
 
